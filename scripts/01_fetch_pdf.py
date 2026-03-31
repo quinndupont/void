@@ -13,7 +13,7 @@ from utils import PROJECT_ROOT  # noqa: E402
 import requests
 
 ARCHIVE_URL = (
-    "https://archive.org/download/B-001-004-120/B-001-004-120.pdf"
+    "https://dn720701.ca.archive.org/0/items/B-001-004-120/georges_perec_la_disparition.pdf"
 )
 OUT = PROJECT_ROOT / "data" / "raw" / "la_disparition.pdf"
 
