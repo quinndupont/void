@@ -1,10 +1,5 @@
 # Model list for translation. Verify IDs: aws bedrock list-foundation-models --region us-east-1
 models:
-  - name: "qwen2.5-14b"
-    provider: "ollama"
-    model_id: "qwen3.5-9b-claude-opus:9b-q4"
-    temperature: 0.3
-
   - name: "qwen2.5-7b"
     provider: "ollama"
     model_id: "qwen2.5:7b-instruct"

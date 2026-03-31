@@ -10,8 +10,14 @@ This is a literary translation. Prioritize:
 4. When a direct translation would require "e," find creative alternatives:
    synonyms, restructured sentences, invented compounds.
 
-Translate the following French paragraph. Output ONLY the English translation,
-nothing else — no commentary, no notes, no preamble.
+Translate the following French paragraph.
+
+STRICT OUTPUT RULES:
+- Output ONLY the translated paragraph text.
+- Do NOT output any title, intro, outro, explanation, apology, analysis, or metadata.
+- Do NOT include tags (for example: <think>...</think>), markdown, quotes, or code fences.
+- Do NOT repeat the prompt or include the original French.
+- Return plain text only.
 
 ---
 

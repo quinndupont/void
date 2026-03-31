@@ -56,6 +56,14 @@ def _bedrock_request_body(model_id: str, prompt: str, temperature: float) -> dic
             "top_p": 0.9,
         }
     if "mistral." in mid:
+        # Newer Mistral models on Bedrock expect chat-style messages.
+        if "mistral-large-3" in mid or "ministral-3" in mid or "magistral" in mid:
+            return {
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 8192,
+                "temperature": temperature,
+                "top_p": 0.9,
+            }
         return {
             "prompt": _mistral_instruct_prompt(prompt),
             "max_tokens": 8192,

@@ -2,6 +2,7 @@
 """Translate each paragraph with each model; checkpoint per paragraph. Bedrock uses AWS CLI."""
 
 import json
+import re
 import sys
 import threading
 import time
@@ -37,6 +38,18 @@ def load_prompt_template() -> str:
 
 def format_prompt(tpl: str, french_text: str) -> str:
     return tpl.replace("{french_text}", french_text)
+
+
+def clean_translation_output(text: str) -> str:
+    # Some models emit hidden reasoning wrapped in <think>...</think>.
+    # Keep only the translated output content.
+    cleaned = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.IGNORECASE | re.DOTALL)
+    return cleaned.strip()
+
+
+def estimate_tokens(text: str) -> int:
+    # Lightweight tokenizer approximation for cross-provider consistency.
+    return len(re.findall(r"\S+", text))
 
 
 def load_french() -> list[dict]:
@@ -163,12 +176,18 @@ def translate_one(
 
     max_r = int(cfg.get("translate", {}).get("max_retries", 3))
     english = retry_with_backoff(run, max_retries=max_r)
+    english = clean_translation_output(english)
     ms = int((time.perf_counter() - t0) * 1000)
+    secs = ms / 1000 if ms > 0 else 0.0
+    tok_out = estimate_tokens(english)
+    tok_per_s = round(tok_out / secs, 3) if secs > 0 else 0.0
     n_e, pos = count_e(english)
     return {
         "id": pid,
         "french": text,
         "english": english,
+        "token_count": tok_out,
+        "tok_per_s": tok_per_s,
         "e_count": n_e,
         "e_positions": pos,
         "latency_ms": ms,
@@ -203,6 +222,8 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
         )
 
     existing = load_existing(path)
+    test_cfg = cfg.get("translate_test") or {}
+    test_enabled = bool(test_cfg.get("enabled", False))
     if existing is None:
         doc = {
             "model": name,
@@ -214,6 +235,8 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
             "excluded_pre_text_ids": selection_info["excluded_pre_text_ids"],
             "paragraphs": [],
         }
+        if test_enabled:
+            doc["test_attempts"] = []
         done_ids: set[str] = set()
     else:
         doc = existing
@@ -221,6 +244,8 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
         doc["main_start_id"] = selection_info["main_start_id"]
         doc["main_end_id"] = selection_info["main_end_id"]
         doc["excluded_pre_text_ids"] = selection_info["excluded_pre_text_ids"]
+        if test_enabled and "test_attempts" not in doc:
+            doc["test_attempts"] = []
         done_ids = {p["id"] for p in doc["paragraphs"]}
 
     pending = [p for p in selected if p["id"] not in done_ids]
@@ -245,16 +270,43 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
             )
         )
 
-    test_cfg = cfg.get("translate_test") or {}
-    test_enabled = bool(test_cfg.get("enabled", False))
+    def is_ollama_timeout(err: Exception) -> bool:
+        msg = str(err).lower()
+        return provider == "ollama" and (
+            "read timed out" in msg
+            or "readtimeout" in msg
+            or "timed out" in msg
+        )
+
     if test_enabled:
         limit = int(test_cfg.get("limit", 3))
         if limit < 1:
             raise ValueError("translate_test.limit must be >= 1")
+        tested_ids = {a.get("id") for a in doc.get("test_attempts", []) if isinstance(a, dict) and a.get("id")}
+        if tested_ids:
+            pending = [p for p in pending if p["id"] not in tested_ids]
+        if not pending:
+            print(f"[{name}] TEST MODE: nothing to do (all pending ids already tested)")
+            return
         pending = pending[:limit]
         doc["test_mode"] = True
         doc["test_limit"] = limit
+        save_translation(path, doc)
         print(f"[{name}] TEST MODE enabled; limiting to {len(pending)} paragraph(s)")
+
+    def record_test_attempt(pid: str, status: str, error: str | None = None) -> None:
+        if not test_enabled:
+            return
+        attempts = doc.setdefault("test_attempts", [])
+        attempts.append(
+            {
+                "id": pid,
+                "status": status,
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "error": error,
+            }
+        )
+        save_translation(path, doc)
 
     conc = int(cfg.get("translate", {}).get("bedrock_concurrency", 2))
     print(f"[{name}] translating {len(pending)} paragraphs (provider={provider})…")
@@ -274,17 +326,28 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
                 except Exception as e:  # noqa: BLE001
                     if is_missing_ollama_model(e):
                         print(f"[{name}] SKIP missing local model during request: {e}")
+                        record_test_attempt(p["id"], "skip_missing_model", str(e))
                         return
+                    if is_ollama_timeout(e):
+                        print(f"[{name}] TIMEOUT {p['id']}; skipping paragraph and continuing")
+                        record_test_attempt(p["id"], "timeout", str(e))
+                        continue
                     if is_unavailable_bedrock_model(e):
                         print(f"[{name}] SKIP unavailable Bedrock model configuration: {e}")
+                        record_test_attempt(p["id"], "skip_unavailable_model", str(e))
                         return
                     print(f"[{name}] FAIL {p['id']}: {e}")
+                    record_test_attempt(p["id"], "error", str(e))
                     raise
                 with lock:
                     doc["paragraphs"].append(row)
                     doc["paragraphs"].sort(key=lambda x: x["id"])
+                    record_test_attempt(row["id"], "ok")
                     save_translation(path, doc)
-                print(f"[{name}] {row['id']} e_count={row['e_count']} {row['latency_ms']}ms")
+                print(
+                    f"[{name}] {row['id']} e_count={row['e_count']} "
+                    f"tok={row['token_count']} tok/s={row['tok_per_s']} {row['latency_ms']}ms"
+                )
     else:
         for p in pending:
             try:
@@ -292,16 +355,27 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
             except Exception as e:  # noqa: BLE001
                 if is_missing_ollama_model(e):
                     print(f"[{name}] SKIP missing local model during request: {e}")
+                    record_test_attempt(p["id"], "skip_missing_model", str(e))
                     return
+                if is_ollama_timeout(e):
+                    print(f"[{name}] TIMEOUT {p['id']}; skipping paragraph and continuing")
+                    record_test_attempt(p["id"], "timeout", str(e))
+                    continue
                 if is_unavailable_bedrock_model(e):
                     print(f"[{name}] SKIP unavailable Bedrock model configuration: {e}")
+                    record_test_attempt(p["id"], "skip_unavailable_model", str(e))
                     return
                 print(f"[{name}] FAIL {p['id']}: {e}")
+                record_test_attempt(p["id"], "error", str(e))
                 raise
             doc["paragraphs"].append(row)
             doc["paragraphs"].sort(key=lambda x: x["id"])
+            record_test_attempt(row["id"], "ok")
             save_translation(path, doc)
-            print(f"[{name}] {row['id']} e_count={row['e_count']} {row['latency_ms']}ms")
+            print(
+                f"[{name}] {row['id']} e_count={row['e_count']} "
+                f"tok={row['token_count']} tok/s={row['tok_per_s']} {row['latency_ms']}ms"
+            )
 
 
 def parse_args(argv: list[str]) -> dict:
