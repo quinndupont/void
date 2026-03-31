@@ -237,7 +237,12 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
         return (
             provider == "bedrock"
             and "validationexception" in msg
-            and ("inference profile" in msg or "on-demand throughput isn’t supported" in msg)
+            and (
+                "inference profile" in msg
+                or "on-demand throughput isn’t supported" in msg
+                or "provided model identifier is invalid" in msg
+                or "model identifier is invalid" in msg
+            )
         )
 
     test_cfg = cfg.get("translate_test") or {}
