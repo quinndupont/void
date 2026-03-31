@@ -170,20 +170,67 @@ def translate_ollama(
     prompt: str,
     temperature: float = 0.3,
     timeout_s: float = 120,
+    model_name: str | None = None,
 ) -> str:
     import requests
 
-    url = base_url.rstrip("/") + "/api/generate"
-    payload = {
+    root = base_url.rstrip("/")
+
+    # Primary Ollama-native endpoint.
+    gen_url = root + "/api/generate"
+    gen_payload = {
         "model": model_id,
         "prompt": prompt,
         "temperature": temperature,
         "stream": False,
     }
-    r = requests.post(url, json=payload, timeout=timeout_s)
-    r.raise_for_status()
-    data = r.json()
-    return (data.get("response") or "").strip()
+    r = requests.post(gen_url, json=gen_payload, timeout=timeout_s)
+    if r.status_code < 400:
+        data = r.json()
+        return (data.get("response") or "").strip()
+
+    # Fallback for OpenAI-compatible servers configured on the same base URL.
+    if r.status_code == 404:
+        chat_url = root + "/v1/chat/completions"
+        candidate_models: list[str] = []
+        for cand in (model_id, model_id.replace(":", "-"), model_id.split(":", 1)[0], model_name):
+            if cand and cand not in candidate_models:
+                candidate_models.append(cand)
+        last_r = None
+        for candidate in candidate_models:
+            chat_payload = {
+                "model": candidate,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": temperature,
+                "stream": False,
+            }
+            r2 = requests.post(chat_url, json=chat_payload, timeout=timeout_s)
+            last_r = r2
+            if r2.status_code < 400:
+                data2 = r2.json()
+                choices = data2.get("choices") or []
+                if choices and isinstance(choices[0], dict):
+                    msg = choices[0].get("message") or {}
+                    return (msg.get("content") or "").strip()
+                return ""
+            # Keep trying aliases only for model-not-found 404s.
+            if r2.status_code != 404:
+                break
+            body = (r2.text or "").lower()
+            if "not found" not in body:
+                break
+        err2 = ((last_r.text if last_r is not None else "") or "").strip()
+        raise requests.HTTPError(
+            f"Ollama request failed ({last_r.status_code if last_r is not None else 404}) "
+            f"at {chat_url} for model aliases {candidate_models}: {err2}",
+            response=last_r,
+        )
+
+    err = (r.text or "").strip()
+    raise requests.HTTPError(
+        f"Ollama request failed ({r.status_code}) at {gen_url} for model '{model_id}': {err}",
+        response=r,
+    )
 
 
 def translate(
@@ -195,9 +242,17 @@ def translate(
     ollama_base_url: str = "http://localhost:11434",
     bedrock_region: str = "us-east-1",
     ollama_timeout_s: float = 120,
+    model_name: str | None = None,
 ) -> str:
     if provider == "ollama":
-        return translate_ollama(ollama_base_url, model_id, prompt, temperature, ollama_timeout_s)
+        return translate_ollama(
+            ollama_base_url,
+            model_id,
+            prompt,
+            temperature,
+            ollama_timeout_s,
+            model_name=model_name,
+        )
     if provider == "bedrock":
         return translate_bedrock(bedrock_region, model_id, prompt, temperature)
     if provider == "openai":
@@ -205,6 +260,44 @@ def translate(
             "OpenAI provider not wired in this scaffold; add openai package and API key or extend translate()."
         )
     raise ValueError(f"Unknown provider: {provider}")
+
+
+def ollama_model_available(base_url: str, model_id: str, model_name: str | None = None) -> tuple[bool, list[str]]:
+    """Check whether configured model aliases exist on local Ollama-compatible server."""
+    import requests
+
+    root = base_url.rstrip("/")
+    aliases: list[str] = []
+    for cand in (model_id, model_id.replace(":", "-"), model_id.split(":", 1)[0], model_name):
+        if cand and cand not in aliases:
+            aliases.append(cand)
+
+    # Native Ollama model listing.
+    try:
+        r = requests.get(root + "/api/tags", timeout=10)
+        if r.status_code < 400:
+            data = r.json()
+            names = {m.get("name", "") for m in (data.get("models") or []) if isinstance(m, dict)}
+            names |= {n.split(":", 1)[0] for n in names}
+            if any(a in names for a in aliases):
+                return True, aliases
+    except Exception:  # noqa: BLE001
+        pass
+
+    # OpenAI-compatible model listing.
+    try:
+        r2 = requests.get(root + "/v1/models", timeout=10)
+        if r2.status_code < 400:
+            data2 = r2.json()
+            models = data2.get("data") or []
+            ids = {m.get("id", "") for m in models if isinstance(m, dict)}
+            ids |= {i.split(":", 1)[0] for i in ids}
+            if any(a in ids for a in aliases):
+                return True, aliases
+    except Exception:  # noqa: BLE001
+        pass
+
+    return False, aliases
 
 
 def retry_with_backoff(fn, max_retries: int = 3, base_delay: float = 1.0):

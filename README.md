@@ -38,9 +38,13 @@ aws bedrock list-foundation-models --region us-east-1 --query 'modelSummaries[?c
 1. `python scripts/01_fetch_pdf.py` — download PDF to `data/raw/la_disparition.pdf`
 2. `python scripts/02_extract_text.py` — PDF → `data/pages/page_NNN.txt`
 3. `python scripts/03_cleanup.py` — `data/french_clean.json` (+ `e_errors_review.json` if needed)
-4. `python scripts/04_translate.py` — per-model JSON under `data/translations/` (checkpointed)
-5. `python scripts/05_score.py` — `data/scores.json` and `site/data.json`
-6. Open `site/index.html` (or serve `site/` statically)
+4. `python scripts/03b_tag_main_boundaries.py` — tag `pre_text` + `main_start`/`main_end` in `data/french_clean.json`
+5. `python scripts/04_translate.py` — per-model JSON under `data/translations/` (checkpointed)
+6. `python scripts/05_score.py` — `data/scores.json` and `site/data.json`
+7. Open `site/index.html` (or serve `site/` statically)
+
+`04_translate.py` now defaults to `translate.scope: main_only` and excludes pre-text boundaries (`p0001`, `p0156`, `p0157`) unless tags in `data/french_clean.json` explicitly set `main_start`/`main_end`. To translate everything, set `translate.scope: all` in `config.yaml`.
+For a quick smoke test run, use `python scripts/04_translate.py --test` (or `--test --test-limit 1`) to translate only a small number of pending paragraphs per model.
 
 Start small: trim to a few pages/models before a full run (see plan notes in the repo history or project brief).
 
