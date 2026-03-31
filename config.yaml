@@ -32,17 +32,17 @@ models:
 
   - name: "claude-sonnet"
     provider: "bedrock"
-    model_id: "anthropic.claude-3-5-sonnet-20241022-v2:0"
+    model_id: "us.anthropic.claude-3-5-sonnet-20241022-v2:0"
     temperature: 0.3
 
   - name: "claude-haiku"
     provider: "bedrock"
-    model_id: "anthropic.claude-3-5-haiku-20241022-v1:0"
+    model_id: "us.anthropic.claude-3-5-haiku-20241022-v1:0"
     temperature: 0.3
 
   - name: "llama3.1-70b"
     provider: "bedrock"
-    model_id: "meta.llama3-1-70b-instruct-v1:0"
+    model_id: "us.meta.llama3-1-70b-instruct-v1:0"
     temperature: 0.3
 
   - name: "mistral-large"
@@ -52,7 +52,7 @@ models:
 
   - name: "amazon-nova-pro"
     provider: "bedrock"
-    model_id: "amazon.nova-pro-v1:0"
+    model_id: "us.amazon.nova-pro-v1:0"
     temperature: 0.3
 
 ollama:
