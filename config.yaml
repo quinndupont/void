@@ -2,17 +2,17 @@
 models:
   - name: "qwen2.5-14b"
     provider: "ollama"
-    model_id: "qwen2.5:14b"
+    model_id: "qwen3.5-9b-claude-opus:9b-q4"
     temperature: 0.3
 
   - name: "qwen2.5-7b"
     provider: "ollama"
-    model_id: "qwen2.5:7b"
+    model_id: "qwen2.5:7b-instruct"
     temperature: 0.3
 
   - name: "mistral-7b"
     provider: "ollama"
-    model_id: "mistral:7b"
+    model_id: "command-r7b:7b"
     temperature: 0.3
 
   - name: "llama3.1-8b"
@@ -22,12 +22,12 @@ models:
 
   - name: "gemma2-9b"
     provider: "ollama"
-    model_id: "gemma2:9b"
+    model_id: "qwen3:8b"
     temperature: 0.3
 
   - name: "phi3-14b"
     provider: "ollama"
-    model_id: "phi3:14b"
+    model_id: "phi3:mini"
     temperature: 0.3
 
   - name: "claude-sonnet"
@@ -37,7 +37,7 @@ models:
 
   - name: "claude-haiku"
     provider: "bedrock"
-    model_id: "us.anthropic.claude-3-5-haiku-20241022-v1:0"
+    model_id: "us.anthropic.claude-haiku-4-5-20251001-v1:0"
     temperature: 0.3
 
   - name: "llama3.1-70b"
@@ -47,7 +47,7 @@ models:
 
   - name: "mistral-large"
     provider: "bedrock"
-    model_id: "mistral.mistral-large-2407-v1:0"
+    model_id: "mistral.mistral-large-3-675b-instruct"
     temperature: 0.3
 
   - name: "amazon-nova-pro"
