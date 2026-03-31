@@ -1,0 +1,71 @@
+# Model list for translation. Verify IDs: aws bedrock list-foundation-models --region us-east-1
+models:
+  - name: "qwen2.5-14b"
+    provider: "ollama"
+    model_id: "qwen2.5:14b"
+    temperature: 0.3
+
+  - name: "qwen2.5-7b"
+    provider: "ollama"
+    model_id: "qwen2.5:7b"
+    temperature: 0.3
+
+  - name: "mistral-7b"
+    provider: "ollama"
+    model_id: "mistral:7b"
+    temperature: 0.3
+
+  - name: "llama3.1-8b"
+    provider: "ollama"
+    model_id: "llama3.1:8b"
+    temperature: 0.3
+
+  - name: "gemma2-9b"
+    provider: "ollama"
+    model_id: "gemma2:9b"
+    temperature: 0.3
+
+  - name: "phi3-14b"
+    provider: "ollama"
+    model_id: "phi3:14b"
+    temperature: 0.3
+
+  - name: "claude-sonnet"
+    provider: "bedrock"
+    model_id: "anthropic.claude-3-5-sonnet-20241022-v2:0"
+    temperature: 0.3
+
+  - name: "claude-haiku"
+    provider: "bedrock"
+    model_id: "anthropic.claude-3-5-haiku-20241022-v1:0"
+    temperature: 0.3
+
+  - name: "llama3.1-70b"
+    provider: "bedrock"
+    model_id: "meta.llama3-1-70b-instruct-v1:0"
+    temperature: 0.3
+
+  - name: "mistral-large"
+    provider: "bedrock"
+    model_id: "mistral.mistral-large-2407-v1:0"
+    temperature: 0.3
+
+  - name: "amazon-nova-pro"
+    provider: "bedrock"
+    model_id: "amazon.nova-pro-v1:0"
+    temperature: 0.3
+
+ollama:
+  base_url: "http://localhost:11434"
+
+bedrock:
+  region: "us-east-1"
+
+# Pipeline options
+translate:
+  bedrock_concurrency: 2
+  max_retries: 3
+  ollama_timeout_s: 120
+
+judge:
+  bedrock_model_id: "anthropic.claude-3-5-sonnet-20241022-v2:0"

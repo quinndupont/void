@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>void — La Disparition benchmark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1 class="title">void</h1>
+      <p class="lede">
+        AI translations of Georges Perec’s <em>La Disparition</em> under the lipogram constraint
+        (no Latin letter “e” in English output). Research / criticism; source:
+        <a href="https://archive.org/details/B-001-004-120">Archive.org</a>.
+      </p>
+      <div class="controls">
+        <label class="check-french">
+          <input type="checkbox" id="toggleFrench" />
+          Show French
+        </label>
+      </div>
+      <div class="legend" id="modelLegend" aria-label="Models"></div>
+    </header>
+
+    <main id="reader" class="reader" aria-live="polite"></main>
+
+    <div id="sheet" class="bottom-sheet" hidden>
+      <div class="sheet-backdrop" id="sheetBackdrop"></div>
+      <div class="sheet-panel" role="dialog" aria-modal="true">
+        <p class="sheet-title" id="sheetTitle">Choose model</p>
+        <ul class="sheet-list" id="sheetList"></ul>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

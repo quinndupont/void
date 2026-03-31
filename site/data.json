@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "title": "La Disparition",
+    "author": "Georges Perec",
+    "note": "Placeholder — replace by running scripts/05_score.py"
+  },
+  "models": ["demo-model"],
+  "default_model": "demo-model",
+  "model_colors": {
+    "demo-model": "#B85C3A"
+  },
+  "model_stats": {
+    "demo-model": { "pass_rate": 1, "total_e_count": 0 }
+  },
+  "paragraphs": [
+    {
+      "id": "p0001",
+      "chapter": 1,
+      "french": "Salut, tout va bon sans souci.",
+      "translations": {
+        "demo-model": {
+          "text": "A novel avoiding that fifth Latin glyph — you know which.",
+          "e_count": 0
+        }
+      }
+    }
+  ]
+}
