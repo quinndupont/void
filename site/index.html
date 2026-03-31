@@ -20,9 +20,31 @@
         (no Latin letter “e” in English output). Research / criticism; source:
         <a href="https://archive.org/details/B-001-004-120">Archive.org</a>.
       </p>
+      <details class="prompt-box">
+        <summary>Translation prompt</summary>
+        <pre>Produce an English literary rendering with a hard lipogram constraint.
+
+Prioritize:
+1. THE CONSTRAINT: No letter "e" in your output (uppercase or lowercase). Non-negotiable.
+2. Meaning: Preserve the source sense as closely as possible.
+3. Literary quality: Keep fluent, rhythmic prose.
+4. If a direct wording requires "e", use creative alternatives:
+   synonyms, restructuring, or inventive phrasing.
+
+STRICT OUTPUT RULES:
+- Output ONLY the translated paragraph text.
+- Do NOT output any title, intro, outro, explanation, apology, analysis, or metadata.
+- Do NOT include tags (for example: &lt;think&gt;...&lt;/think&gt;), markdown, quotes, or code fences.
+- Do NOT repeat the prompt or include the original French.
+- Return plain text only.
+
+---
+
+{french_text}</pre>
+      </details>
       <div class="controls">
         <label class="check-french">
-          <input type="checkbox" id="toggleFrench" />
+          <input type="checkbox" id="toggleFrench" checked />
           Show French
         </label>
       </div>

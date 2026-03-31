@@ -283,6 +283,9 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
         if limit < 1:
             raise ValueError("translate_test.limit must be >= 1")
         tested_ids = {a.get("id") for a in doc.get("test_attempts", []) if isinstance(a, dict) and a.get("id")}
+        # Backward-compatible: if prior test runs predate test_attempt logging,
+        # treat already-saved paragraph ids as tested as well.
+        tested_ids |= {p.get("id") for p in doc.get("paragraphs", []) if isinstance(p, dict) and p.get("id")}
         if tested_ids:
             pending = [p for p in pending if p["id"] not in tested_ids]
         if not pending:

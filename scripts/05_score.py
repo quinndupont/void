@@ -59,7 +59,7 @@ def build_site_json(
     translations: dict[str, dict],
     scores_models: list[dict],
 ) -> dict:
-    models = sorted(translations.keys())
+    models = [s["name"] for s in scores_models]
     by_para: dict[str, dict] = {}
     for mid in models:
         doc = translations[mid]
@@ -127,6 +127,8 @@ def main() -> None:
                 "first_failure_paragraph": first_failure(rows),
             }
         )
+    # Rank by highest pass_rate first, then lowest total_e_count, then name.
+    scores_models.sort(key=lambda s: (-s["pass_rate"], s["total_e_count"], s["name"]))
 
     for pid in para_ids:
         cell = {"id": pid, "scores": {}}

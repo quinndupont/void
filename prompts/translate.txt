@@ -1,16 +1,11 @@
-You are translating an excerpt from Georges Perec's "La Disparition," a novel
-written entirely without the letter "e." Your English translation must also
-contain absolutely no letter "e" (uppercase or lowercase).
+Produce an English literary rendering with a hard lipogram constraint.
 
-This is a literary translation. Prioritize:
-1. THE CONSTRAINT: No letter "e" in your output. This is non-negotiable.
-2. Meaning: Preserve the sense of the original.
-3. Literary quality: This is a published novel, not a code comment. Aim for
-   fluent, rhythmic English prose.
-4. When a direct translation would require "e," find creative alternatives:
-   synonyms, restructured sentences, invented compounds.
-
-Translate the following French paragraph.
+Prioritize:
+1. THE CONSTRAINT: No letter "e" in your output (uppercase or lowercase). Non-negotiable.
+2. Meaning: Preserve the source sense as closely as possible.
+3. Literary quality: Keep fluent, rhythmic prose.
+4. If a direct wording requires "e", use creative alternatives:
+   synonyms, restructuring, or inventive phrasing.
 
 STRICT OUTPUT RULES:
 - Output ONLY the translated paragraph text.

@@ -1,4 +1,5 @@
 (function () {
+  const FRENCH_MODEL = "__french__";
   const reader = document.getElementById("reader");
   const legend = document.getElementById("modelLegend");
   const toggleFrench = document.getElementById("toggleFrench");
@@ -16,6 +17,7 @@
   let sheetParaId = null;
 
   const isMobile = () => window.matchMedia("(max-width: 639px)").matches;
+  const allModels = () => [FRENCH_MODEL, ...(data?.models || [])];
 
   function escapeHtml(s) {
     return s
@@ -38,24 +40,40 @@
   }
 
   function modelForParagraph(pid) {
-    return perParagraph[pid] || globalModel;
+    return perParagraph[pid] || null;
   }
 
   function renderLegend() {
     legend.innerHTML = "";
     const stats = data.model_stats || {};
-    for (const name of data.models) {
-      const color = data.model_colors[name] || "#888";
+    const totalParas =
+      (data.metadata && Number(data.metadata.total_paragraphs)) ||
+      (Array.isArray(data.paragraphs) ? data.paragraphs.length : 0);
+    for (const name of allModels()) {
+      const color = name === FRENCH_MODEL ? "#444" : data.model_colors[name] || "#888";
       const st = stats[name] || {};
       const pr = st.pass_rate != null ? Math.round(st.pass_rate * 1000) / 10 : null;
+      const processed =
+        name === FRENCH_MODEL
+          ? totalParas
+          : Array.isArray(data.paragraphs)
+            ? data.paragraphs.reduce(
+                (acc, p) => acc + (p.translations && p.translations[name] ? 1 : 0),
+                0
+              )
+            : 0;
       const btn = document.createElement("button");
       btn.type = "button";
       btn.dataset.model = name;
       if (name === globalModel) btn.classList.add("active");
       btn.innerHTML = `<span class="legend-dot" style="background:${color}"></span><span>${escapeHtml(
-        name
-      )}</span>${
-        pr != null ? `<span class="legend-meta">· ${pr}% e-free paras</span>` : ""
+        name === FRENCH_MODEL ? "french" : name
+      )}</span><span class="legend-meta">· ${processed}/${totalParas} paras</span>${
+        name === FRENCH_MODEL
+          ? `<span class="legend-meta"> · 100% e-free</span>`
+          : pr != null
+            ? `<span class="legend-meta"> · ${pr}% e-free</span>`
+            : ""
       }`;
       btn.addEventListener("click", () => {
         globalModel = name;
@@ -80,7 +98,8 @@
     sheetList.innerHTML = "";
     const fr = data.paragraphs.find((p) => p.id === pid);
     if (!fr) return;
-    for (const name of data.models) {
+    for (const name of allModels()) {
+      if (name === FRENCH_MODEL) continue;
       const tr = fr.translations[name];
       if (!tr) continue;
       const li = document.createElement("li");
@@ -106,7 +125,8 @@
     if (!fr) return;
     const ul = document.createElement("ul");
     ul.className = "popover";
-    for (const name of data.models) {
+    for (const name of allModels()) {
+      if (name === FRENCH_MODEL) continue;
       const tr = fr.translations[name];
       if (!tr) continue;
       const li = document.createElement("li");
@@ -150,34 +170,48 @@
       const article = document.createElement("article");
       article.className = "para";
       const mname = modelForParagraph(p.id);
-      const color = data.model_colors[mname] || "#999";
-      article.style.setProperty("--bar-color", color);
+      article.style.setProperty("--band-count", String(allModels().length || 1));
 
-      const hit = document.createElement("button");
-      hit.type = "button";
-      hit.className = "para-bar-hit";
-      hit.setAttribute("aria-label", `Choose model for ${p.id}`);
-      hit.addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        if (isMobile()) openSheet(p.id);
-        else openPopoverDesktop(p.id, wrap);
-      });
-
-      const french = document.createElement("p");
-      french.className = "french-line";
-      french.textContent = p.french;
+      const bands = document.createElement("div");
+      bands.className = "para-bands";
+      for (const name of allModels()) {
+        const band = document.createElement("button");
+        band.type = "button";
+        band.className = "para-band-btn";
+        if (name === mname) band.classList.add("active");
+        if (name !== FRENCH_MODEL && !(p.translations && p.translations[name])) band.classList.add("missing");
+        band.style.setProperty(
+          "--band-color",
+          name === FRENCH_MODEL ? "#444" : data.model_colors[name] || "#999"
+        );
+        if (name === FRENCH_MODEL) {
+          band.title = "french (original)";
+          band.setAttribute("aria-label", `Use french original for ${p.id}`);
+        } else {
+          const trBand = p.translations && p.translations[name];
+          const ec = trBand ? trBand.e_count : "n/a";
+          band.title = `${name} (e: ${ec})`;
+          band.setAttribute("aria-label", `Use ${name} for ${p.id}`);
+        }
+        band.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          perParagraph[p.id] = name;
+          renderLegend();
+          renderReader();
+        });
+        bands.appendChild(band);
+      }
 
       const tr = p.translations[mname];
       const body = document.createElement("p");
       body.className = "para-text";
-      if (tr && tr.text) {
+      if (mname && mname !== FRENCH_MODEL && tr && tr.text) {
         body.innerHTML = tr.e_count > 0 ? highlightE(tr.text) : escapeHtml(tr.text);
       } else {
-        body.textContent = "—";
+        body.textContent = p.french;
       }
 
-      article.appendChild(hit);
-      article.appendChild(french);
+      article.appendChild(bands);
       article.appendChild(body);
       wrap.appendChild(article);
       reader.appendChild(wrap);
@@ -189,6 +223,7 @@
   toggleFrench.addEventListener("change", () => {
     document.body.classList.toggle("show-french", toggleFrench.checked);
   });
+  document.body.classList.toggle("show-french", toggleFrench.checked);
 
   sheetBackdrop.addEventListener("click", () => {
     sheet.hidden = true;
@@ -202,8 +237,7 @@
     })
     .then((json) => {
       data = json;
-      globalModel =
-        json.default_model || (json.models && json.models[0]) || null;
+      globalModel = FRENCH_MODEL;
       if (!globalModel) throw new Error("No models in data");
       renderLegend();
       renderReader();

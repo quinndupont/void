@@ -52,6 +52,37 @@ body {
   color: var(--accent);
 }
 
+.prompt-box {
+  margin-top: 0.85rem;
+  text-align: left;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fffef9;
+}
+
+.prompt-box summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.prompt-box[open] summary {
+  border-bottom: 1px solid var(--rule);
+}
+
+.prompt-box pre {
+  margin: 0;
+  padding: 0.65rem 0.7rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: #3e3a35;
+}
+
 .gap {
   display: inline-block;
   min-width: 0.5em;
@@ -122,18 +153,43 @@ body {
 .para {
   position: relative;
   margin: 0 0 1.35rem;
-  padding-left: 1rem;
-  border-left: 4px solid var(--bar-color, #999);
+  --band-width: 8px;
+  --band-gap: 2px;
+  padding-left: calc((var(--band-count) * (var(--band-width) + var(--band-gap))) + 0.8rem);
 }
 
-.para-bar-hit {
+.para-bands {
   position: absolute;
-  left: -1rem;
+  left: 0;
   top: 0;
   bottom: 0;
-  width: 12px;
+  display: flex;
+  gap: var(--band-gap);
+}
+
+.para-band-btn {
+  width: var(--band-width);
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background: var(--band-color, #999);
   cursor: pointer;
-  background: transparent;
+  opacity: 0.75;
+}
+
+.para-band-btn:hover {
+  opacity: 1;
+}
+
+.para-band-btn.active {
+  opacity: 1;
+  outline: 1px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.para-band-btn.missing {
+  opacity: 0.2;
 }
 
 .french-line {

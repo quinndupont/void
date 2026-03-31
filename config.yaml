@@ -27,7 +27,12 @@ models:
 
   - name: "claude-sonnet"
     provider: "bedrock"
-    model_id: "us.anthropic.claude-3-5-sonnet-20241022-v2:0"
+    model_id: "us.anthropic.claude-sonnet-4-6"
+    temperature: 0.3
+
+  - name: "claude-opus"
+    provider: "bedrock"
+    model_id: "us.anthropic.claude-opus-4-6-v1"
     temperature: 0.3
 
   - name: "claude-haiku"
