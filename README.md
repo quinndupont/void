@@ -14,7 +14,7 @@ Benchmark: translate Georges Perec’s *La Disparition* (lipogram: no letter “
 ## Setup
 
 ```bash
-cd dev/void   # or your clone path
+cd /Users/quinn/dev/void   # this project root
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
