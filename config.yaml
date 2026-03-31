@@ -66,6 +66,3 @@ translate:
   bedrock_concurrency: 2
   max_retries: 3
   ollama_timeout_s: 120
-
-judge:
-  bedrock_model_id: "anthropic.claude-3-5-sonnet-20241022-v2:0"
