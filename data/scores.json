@@ -1,0 +1,7016 @@
+{
+  "models": [
+    {
+      "name": "qwen2.5-7b",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 29,
+      "pass_rate": 0.1835,
+      "total_e_count": 14316,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "amazon-nova-pro",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 22,
+      "pass_rate": 0.1392,
+      "total_e_count": 498,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "gemini-2.5-pro",
+      "total_paragraphs": 157,
+      "e_free_paragraphs": 14,
+      "pass_rate": 0.0892,
+      "total_e_count": 713,
+      "first_failure_paragraph": "p0002"
+    },
+    {
+      "name": "claude-haiku",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 12,
+      "pass_rate": 0.0759,
+      "total_e_count": 16119,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "gemma2-9b",
+      "total_paragraphs": 156,
+      "e_free_paragraphs": 7,
+      "pass_rate": 0.0449,
+      "total_e_count": 24735,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "phi3-14b",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 7,
+      "pass_rate": 0.0443,
+      "total_e_count": 22785,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "claude-opus",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 5,
+      "pass_rate": 0.0316,
+      "total_e_count": 902,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "claude-sonnet",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 3,
+      "pass_rate": 0.019,
+      "total_e_count": 4360,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "mistral-7b",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 3,
+      "pass_rate": 0.019,
+      "total_e_count": 27254,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "llama3.1-70b",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 2,
+      "pass_rate": 0.0127,
+      "total_e_count": 24155,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "gpt-5.4",
+      "total_paragraphs": 157,
+      "e_free_paragraphs": 1,
+      "pass_rate": 0.0064,
+      "total_e_count": 2785,
+      "first_failure_paragraph": "p0002"
+    },
+    {
+      "name": "llama3.1-8b",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 1,
+      "pass_rate": 0.0063,
+      "total_e_count": 19938,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "mistral-large",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 0,
+      "pass_rate": 0.0,
+      "total_e_count": 9541,
+      "first_failure_paragraph": "p0001_main"
+    }
+  ],
+  "paragraph_scores": [
+    {
+      "id": "p0001",
+      "scores": {}
+    },
+    {
+      "id": "p0002",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 299
+        },
+        "mistral-large": {
+          "e_count": 40
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 189
+        },
+        "claude-sonnet": {
+          "e_count": 38
+        },
+        "llama3.1-8b": {
+          "e_count": 21
+        },
+        "gemini-2.5-pro": {
+          "e_count": 13
+        },
+        "claude-opus": {
+          "e_count": 13
+        },
+        "claude-haiku": {
+          "e_count": 92
+        },
+        "gpt-5.4": {
+          "e_count": 23
+        },
+        "gemma2-9b": {
+          "e_count": 189
+        },
+        "llama3.1-70b": {
+          "e_count": 173
+        },
+        "mistral-7b": {
+          "e_count": 209
+        }
+      }
+    },
+    {
+      "id": "p0003",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 870
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 25
+        },
+        "llama3.1-8b": {
+          "e_count": 8
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 9
+        },
+        "claude-haiku": {
+          "e_count": 107
+        },
+        "gpt-5.4": {
+          "e_count": 26
+        },
+        "gemma2-9b": {
+          "e_count": 196
+        },
+        "llama3.1-70b": {
+          "e_count": 177
+        },
+        "mistral-7b": {
+          "e_count": 208
+        }
+      }
+    },
+    {
+      "id": "p0004",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 164
+        },
+        "mistral-large": {
+          "e_count": 74
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 158
+        },
+        "claude-sonnet": {
+          "e_count": 26
+        },
+        "llama3.1-8b": {
+          "e_count": 0
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 128
+        },
+        "gpt-5.4": {
+          "e_count": 12
+        },
+        "gemma2-9b": {
+          "e_count": 198
+        },
+        "llama3.1-70b": {
+          "e_count": 173
+        },
+        "mistral-7b": {
+          "e_count": 248
+        }
+      }
+    },
+    {
+      "id": "p0005",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 3120
+        },
+        "mistral-large": {
+          "e_count": 17
+        },
+        "amazon-nova-pro": {
+          "e_count": 14
+        },
+        "qwen2.5-7b": {
+          "e_count": 215
+        },
+        "claude-sonnet": {
+          "e_count": 97
+        },
+        "llama3.1-8b": {
+          "e_count": 204
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 28
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 22
+        },
+        "gemma2-9b": {
+          "e_count": 194
+        },
+        "llama3.1-70b": {
+          "e_count": 181
+        },
+        "mistral-7b": {
+          "e_count": 187
+        }
+      }
+    },
+    {
+      "id": "p0006",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 183
+        },
+        "mistral-large": {
+          "e_count": 88
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 27
+        },
+        "llama3.1-8b": {
+          "e_count": 211
+        },
+        "gemini-2.5-pro": {
+          "e_count": 11
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 188
+        },
+        "gpt-5.4": {
+          "e_count": 34
+        },
+        "gemma2-9b": {
+          "e_count": 232
+        },
+        "llama3.1-70b": {
+          "e_count": 215
+        },
+        "mistral-7b": {
+          "e_count": 253
+        }
+      }
+    },
+    {
+      "id": "p0007",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 60
+        },
+        "mistral-large": {
+          "e_count": 27
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 3
+        },
+        "claude-sonnet": {
+          "e_count": 11
+        },
+        "llama3.1-8b": {
+          "e_count": 188
+        },
+        "gemini-2.5-pro": {
+          "e_count": 10
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "gemma2-9b": {
+          "e_count": 188
+        },
+        "llama3.1-70b": {
+          "e_count": 204
+        },
+        "mistral-7b": {
+          "e_count": 242
+        }
+      }
+    },
+    {
+      "id": "p0008",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 235
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 8
+        },
+        "claude-sonnet": {
+          "e_count": 57
+        },
+        "llama3.1-8b": {
+          "e_count": 11
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 10
+        },
+        "claude-haiku": {
+          "e_count": 178
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 228
+        },
+        "llama3.1-70b": {
+          "e_count": 183
+        },
+        "mistral-7b": {
+          "e_count": 236
+        }
+      }
+    },
+    {
+      "id": "p0009",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 141
+        },
+        "mistral-large": {
+          "e_count": 28
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 114
+        },
+        "claude-sonnet": {
+          "e_count": 37
+        },
+        "llama3.1-8b": {
+          "e_count": 189
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 92
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 142
+        },
+        "llama3.1-70b": {
+          "e_count": 140
+        },
+        "mistral-7b": {
+          "e_count": 207
+        }
+      }
+    },
+    {
+      "id": "p0010",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 426
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 26
+        },
+        "llama3.1-8b": {
+          "e_count": 20
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 95
+        },
+        "gpt-5.4": {
+          "e_count": 10
+        },
+        "gemma2-9b": {
+          "e_count": 154
+        },
+        "llama3.1-70b": {
+          "e_count": 152
+        },
+        "mistral-7b": {
+          "e_count": 189
+        }
+      }
+    },
+    {
+      "id": "p0011",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 2197
+        },
+        "mistral-large": {
+          "e_count": 57
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 4
+        },
+        "claude-sonnet": {
+          "e_count": 66
+        },
+        "llama3.1-8b": {
+          "e_count": 213
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 109
+        },
+        "gpt-5.4": {
+          "e_count": 26
+        },
+        "gemma2-9b": {
+          "e_count": 112
+        },
+        "llama3.1-70b": {
+          "e_count": 173
+        },
+        "mistral-7b": {
+          "e_count": 235
+        }
+      }
+    },
+    {
+      "id": "p0012",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 357
+        },
+        "mistral-large": {
+          "e_count": 54
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 252
+        },
+        "claude-sonnet": {
+          "e_count": 14
+        },
+        "llama3.1-8b": {
+          "e_count": 276
+        },
+        "gemini-2.5-pro": {
+          "e_count": 16
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 132
+        },
+        "gpt-5.4": {
+          "e_count": 22
+        },
+        "gemma2-9b": {
+          "e_count": 261
+        },
+        "llama3.1-70b": {
+          "e_count": 266
+        },
+        "mistral-7b": {
+          "e_count": 252
+        }
+      }
+    },
+    {
+      "id": "p0013",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 320
+        },
+        "mistral-large": {
+          "e_count": 45
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 6
+        },
+        "claude-sonnet": {
+          "e_count": 38
+        },
+        "llama3.1-8b": {
+          "e_count": 229
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 189
+        },
+        "gpt-5.4": {
+          "e_count": 30
+        },
+        "gemma2-9b": {
+          "e_count": 252
+        },
+        "llama3.1-70b": {
+          "e_count": 210
+        },
+        "mistral-7b": {
+          "e_count": 145
+        }
+      }
+    },
+    {
+      "id": "p0014",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 1757
+        },
+        "mistral-large": {
+          "e_count": 39
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 172
+        },
+        "claude-sonnet": {
+          "e_count": 96
+        },
+        "llama3.1-8b": {
+          "e_count": 200
+        },
+        "gemini-2.5-pro": {
+          "e_count": 17
+        },
+        "claude-opus": {
+          "e_count": 11
+        },
+        "claude-haiku": {
+          "e_count": 121
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 190
+        },
+        "llama3.1-70b": {
+          "e_count": 181
+        },
+        "mistral-7b": {
+          "e_count": 216
+        }
+      }
+    },
+    {
+      "id": "p0015",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 1164
+        },
+        "mistral-large": {
+          "e_count": 36
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 229
+        },
+        "claude-sonnet": {
+          "e_count": 24
+        },
+        "llama3.1-8b": {
+          "e_count": 254
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 102
+        },
+        "gpt-5.4": {
+          "e_count": 38
+        },
+        "gemma2-9b": {
+          "e_count": 271
+        },
+        "llama3.1-70b": {
+          "e_count": 117
+        },
+        "mistral-7b": {
+          "e_count": 274
+        }
+      }
+    },
+    {
+      "id": "p0016",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 34
+        },
+        "mistral-large": {
+          "e_count": 21
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 155
+        },
+        "claude-sonnet": {
+          "e_count": 12
+        },
+        "llama3.1-8b": {
+          "e_count": 153
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 104
+        },
+        "gpt-5.4": {
+          "e_count": 10
+        },
+        "gemma2-9b": {
+          "e_count": 166
+        },
+        "llama3.1-70b": {
+          "e_count": 151
+        },
+        "mistral-7b": {
+          "e_count": 116
+        }
+      }
+    },
+    {
+      "id": "p0017",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 122
+        },
+        "mistral-large": {
+          "e_count": 58
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 62
+        },
+        "llama3.1-8b": {
+          "e_count": 193
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 96
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 177
+        },
+        "llama3.1-70b": {
+          "e_count": 129
+        },
+        "mistral-7b": {
+          "e_count": 207
+        }
+      }
+    },
+    {
+      "id": "p0018",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 151
+        },
+        "mistral-large": {
+          "e_count": 30
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 183
+        },
+        "claude-sonnet": {
+          "e_count": 34
+        },
+        "llama3.1-8b": {
+          "e_count": 24
+        },
+        "gemini-2.5-pro": {
+          "e_count": 8
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 141
+        },
+        "gpt-5.4": {
+          "e_count": 44
+        },
+        "gemma2-9b": {
+          "e_count": 193
+        },
+        "llama3.1-70b": {
+          "e_count": 160
+        },
+        "mistral-7b": {
+          "e_count": 199
+        }
+      }
+    },
+    {
+      "id": "p0019",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 33
+        },
+        "mistral-large": {
+          "e_count": 59
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 161
+        },
+        "claude-sonnet": {
+          "e_count": 7
+        },
+        "llama3.1-8b": {
+          "e_count": 196
+        },
+        "gemini-2.5-pro": {
+          "e_count": 9
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 106
+        },
+        "gpt-5.4": {
+          "e_count": 36
+        },
+        "gemma2-9b": {
+          "e_count": 141
+        },
+        "llama3.1-70b": {
+          "e_count": 196
+        },
+        "mistral-7b": {
+          "e_count": 194
+        }
+      }
+    },
+    {
+      "id": "p0020",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 69
+        },
+        "mistral-large": {
+          "e_count": 58
+        },
+        "amazon-nova-pro": {
+          "e_count": 11
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 43
+        },
+        "llama3.1-8b": {
+          "e_count": 230
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 126
+        },
+        "gpt-5.4": {
+          "e_count": 15
+        },
+        "gemma2-9b": {
+          "e_count": 0
+        },
+        "llama3.1-70b": {
+          "e_count": 172
+        },
+        "mistral-7b": {
+          "e_count": 223
+        }
+      }
+    },
+    {
+      "id": "p0021",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 12
+        },
+        "mistral-large": {
+          "e_count": 28
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 5
+        },
+        "llama3.1-8b": {
+          "e_count": 291
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 109
+        },
+        "gpt-5.4": {
+          "e_count": 37
+        },
+        "gemma2-9b": {
+          "e_count": 271
+        },
+        "llama3.1-70b": {
+          "e_count": 280
+        },
+        "mistral-7b": {
+          "e_count": 280
+        }
+      }
+    },
+    {
+      "id": "p0022",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 36
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 191
+        },
+        "claude-sonnet": {
+          "e_count": 8
+        },
+        "llama3.1-8b": {
+          "e_count": 230
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 110
+        },
+        "gpt-5.4": {
+          "e_count": 10
+        },
+        "gemma2-9b": {
+          "e_count": 201
+        },
+        "llama3.1-70b": {
+          "e_count": 181
+        },
+        "mistral-7b": {
+          "e_count": 193
+        }
+      }
+    },
+    {
+      "id": "p0023",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 39
+        },
+        "mistral-large": {
+          "e_count": 20
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 4
+        },
+        "claude-sonnet": {
+          "e_count": 3
+        },
+        "llama3.1-8b": {
+          "e_count": 218
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 10
+        },
+        "claude-haiku": {
+          "e_count": 130
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 200
+        },
+        "llama3.1-70b": {
+          "e_count": 145
+        },
+        "mistral-7b": {
+          "e_count": 217
+        }
+      }
+    },
+    {
+      "id": "p0024",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 139
+        },
+        "mistral-large": {
+          "e_count": 36
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 143
+        },
+        "claude-sonnet": {
+          "e_count": 9
+        },
+        "llama3.1-8b": {
+          "e_count": 139
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 8
+        },
+        "claude-haiku": {
+          "e_count": 84
+        },
+        "gpt-5.4": {
+          "e_count": 9
+        },
+        "gemma2-9b": {
+          "e_count": 92
+        },
+        "llama3.1-70b": {
+          "e_count": 128
+        },
+        "mistral-7b": {
+          "e_count": 157
+        }
+      }
+    },
+    {
+      "id": "p0025",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 39
+        },
+        "mistral-large": {
+          "e_count": 42
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 54
+        },
+        "llama3.1-8b": {
+          "e_count": 21
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 8
+        },
+        "claude-haiku": {
+          "e_count": 130
+        },
+        "gpt-5.4": {
+          "e_count": 36
+        },
+        "gemma2-9b": {
+          "e_count": 191
+        },
+        "llama3.1-70b": {
+          "e_count": 147
+        },
+        "mistral-7b": {
+          "e_count": 192
+        }
+      }
+    },
+    {
+      "id": "p0026",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 53
+        },
+        "mistral-large": {
+          "e_count": 22
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 116
+        },
+        "claude-sonnet": {
+          "e_count": 7
+        },
+        "llama3.1-8b": {
+          "e_count": 6
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 9
+        },
+        "gemma2-9b": {
+          "e_count": 133
+        },
+        "llama3.1-70b": {
+          "e_count": 109
+        },
+        "mistral-7b": {
+          "e_count": 141
+        }
+      }
+    },
+    {
+      "id": "p0027",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 0
+        },
+        "mistral-large": {
+          "e_count": 24
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 65
+        },
+        "claude-sonnet": {
+          "e_count": 8
+        },
+        "llama3.1-8b": {
+          "e_count": 99
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 46
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 57
+        },
+        "llama3.1-70b": {
+          "e_count": 109
+        },
+        "mistral-7b": {
+          "e_count": 90
+        }
+      }
+    },
+    {
+      "id": "p0028",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 80
+        },
+        "mistral-large": {
+          "e_count": 27
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 117
+        },
+        "claude-sonnet": {
+          "e_count": 6
+        },
+        "llama3.1-8b": {
+          "e_count": 6
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 38
+        },
+        "gpt-5.4": {
+          "e_count": 12
+        },
+        "gemma2-9b": {
+          "e_count": 130
+        },
+        "llama3.1-70b": {
+          "e_count": 109
+        },
+        "mistral-7b": {
+          "e_count": 152
+        }
+      }
+    },
+    {
+      "id": "p0029",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 96
+        },
+        "mistral-large": {
+          "e_count": 36
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 13
+        },
+        "llama3.1-8b": {
+          "e_count": 203
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 0
+        },
+        "claude-haiku": {
+          "e_count": 97
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "llama3.1-70b": {
+          "e_count": 190
+        },
+        "mistral-7b": {
+          "e_count": 0
+        }
+      }
+    },
+    {
+      "id": "p0030",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 198
+        },
+        "mistral-large": {
+          "e_count": 26
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 61
+        },
+        "llama3.1-8b": {
+          "e_count": 191
+        },
+        "gemini-2.5-pro": {
+          "e_count": 10
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 94
+        },
+        "gpt-5.4": {
+          "e_count": 16
+        },
+        "gemma2-9b": {
+          "e_count": 155
+        },
+        "llama3.1-70b": {
+          "e_count": 186
+        },
+        "mistral-7b": {
+          "e_count": 11
+        }
+      }
+    },
+    {
+      "id": "p0031",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 159
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 21
+        },
+        "llama3.1-8b": {
+          "e_count": 10
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 143
+        },
+        "gpt-5.4": {
+          "e_count": 20
+        },
+        "gemma2-9b": {
+          "e_count": 197
+        },
+        "llama3.1-70b": {
+          "e_count": 152
+        },
+        "mistral-7b": {
+          "e_count": 195
+        }
+      }
+    },
+    {
+      "id": "p0032",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 25
+        },
+        "mistral-large": {
+          "e_count": 42
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 134
+        },
+        "claude-sonnet": {
+          "e_count": 33
+        },
+        "llama3.1-8b": {
+          "e_count": 12
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 93
+        },
+        "gpt-5.4": {
+          "e_count": 21
+        },
+        "gemma2-9b": {
+          "e_count": 200
+        },
+        "llama3.1-70b": {
+          "e_count": 56
+        },
+        "mistral-7b": {
+          "e_count": 113
+        }
+      }
+    },
+    {
+      "id": "p0033",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 35
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 202
+        },
+        "claude-sonnet": {
+          "e_count": 102
+        },
+        "llama3.1-8b": {
+          "e_count": 2
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 26
+        },
+        "claude-haiku": {
+          "e_count": 97
+        },
+        "gpt-5.4": {
+          "e_count": 16
+        },
+        "gemma2-9b": {
+          "e_count": 187
+        },
+        "llama3.1-70b": {
+          "e_count": 207
+        },
+        "mistral-7b": {
+          "e_count": 218
+        }
+      }
+    },
+    {
+      "id": "p0034",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 252
+        },
+        "mistral-large": {
+          "e_count": 21
+        },
+        "amazon-nova-pro": {
+          "e_count": 8
+        },
+        "qwen2.5-7b": {
+          "e_count": 105
+        },
+        "claude-sonnet": {
+          "e_count": 69
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 71
+        },
+        "gpt-5.4": {
+          "e_count": 8
+        },
+        "gemma2-9b": {
+          "e_count": 187
+        },
+        "llama3.1-70b": {
+          "e_count": 113
+        },
+        "mistral-7b": {
+          "e_count": 163
+        }
+      }
+    },
+    {
+      "id": "p0035",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 34
+        },
+        "mistral-large": {
+          "e_count": 495
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 4
+        },
+        "claude-sonnet": {
+          "e_count": 8
+        },
+        "llama3.1-8b": {
+          "e_count": 115
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 79
+        },
+        "gpt-5.4": {
+          "e_count": 6
+        },
+        "gemma2-9b": {
+          "e_count": 115
+        },
+        "llama3.1-70b": {
+          "e_count": 109
+        },
+        "mistral-7b": {
+          "e_count": 143
+        }
+      }
+    },
+    {
+      "id": "p0036",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 52
+        },
+        "mistral-large": {
+          "e_count": 47
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 184
+        },
+        "claude-sonnet": {
+          "e_count": 41
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 10
+        },
+        "claude-haiku": {
+          "e_count": 130
+        },
+        "gpt-5.4": {
+          "e_count": 22
+        },
+        "gemma2-9b": {
+          "e_count": 151
+        },
+        "llama3.1-70b": {
+          "e_count": 161
+        },
+        "mistral-7b": {
+          "e_count": 214
+        }
+      }
+    },
+    {
+      "id": "p0037",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 131
+        },
+        "mistral-large": {
+          "e_count": 27
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 35
+        },
+        "llama3.1-8b": {
+          "e_count": 1
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 96
+        },
+        "gpt-5.4": {
+          "e_count": 15
+        },
+        "gemma2-9b": {
+          "e_count": 158
+        },
+        "llama3.1-70b": {
+          "e_count": 152
+        },
+        "mistral-7b": {
+          "e_count": 209
+        }
+      }
+    },
+    {
+      "id": "p0038",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 263
+        },
+        "mistral-large": {
+          "e_count": 17
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 170
+        },
+        "claude-sonnet": {
+          "e_count": 25
+        },
+        "llama3.1-8b": {
+          "e_count": 172
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 120
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 192
+        },
+        "llama3.1-70b": {
+          "e_count": 141
+        },
+        "mistral-7b": {
+          "e_count": 125
+        }
+      }
+    },
+    {
+      "id": "p0039",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 48
+        },
+        "mistral-large": {
+          "e_count": 19
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 38
+        },
+        "llama3.1-8b": {
+          "e_count": 1
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 74
+        },
+        "gpt-5.4": {
+          "e_count": 26
+        },
+        "gemma2-9b": {
+          "e_count": 169
+        },
+        "llama3.1-70b": {
+          "e_count": 166
+        },
+        "mistral-7b": {
+          "e_count": 20
+        }
+      }
+    },
+    {
+      "id": "p0040",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 31
+        },
+        "mistral-large": {
+          "e_count": 47
+        },
+        "amazon-nova-pro": {
+          "e_count": 14
+        },
+        "qwen2.5-7b": {
+          "e_count": 216
+        },
+        "claude-sonnet": {
+          "e_count": 68
+        },
+        "llama3.1-8b": {
+          "e_count": 218
+        },
+        "gemini-2.5-pro": {
+          "e_count": 8
+        },
+        "claude-opus": {
+          "e_count": 20
+        },
+        "claude-haiku": {
+          "e_count": 147
+        },
+        "gpt-5.4": {
+          "e_count": 22
+        },
+        "gemma2-9b": {
+          "e_count": 248
+        },
+        "llama3.1-70b": {
+          "e_count": 207
+        },
+        "mistral-7b": {
+          "e_count": 162
+        }
+      }
+    },
+    {
+      "id": "p0041",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 27
+        },
+        "mistral-large": {
+          "e_count": 34
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 183
+        },
+        "claude-sonnet": {
+          "e_count": 11
+        },
+        "llama3.1-8b": {
+          "e_count": 203
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 16
+        },
+        "claude-haiku": {
+          "e_count": 91
+        },
+        "gpt-5.4": {
+          "e_count": 16
+        },
+        "gemma2-9b": {
+          "e_count": 139
+        },
+        "llama3.1-70b": {
+          "e_count": 141
+        },
+        "mistral-7b": {
+          "e_count": 81
+        }
+      }
+    },
+    {
+      "id": "p0042",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 195
+        },
+        "mistral-large": {
+          "e_count": 26
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 26
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 11
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 23
+        },
+        "gemma2-9b": {
+          "e_count": 194
+        },
+        "llama3.1-70b": {
+          "e_count": 98
+        },
+        "mistral-7b": {
+          "e_count": 0
+        }
+      }
+    },
+    {
+      "id": "p0043",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 19
+        },
+        "mistral-large": {
+          "e_count": 29
+        },
+        "amazon-nova-pro": {
+          "e_count": 9
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 34
+        },
+        "llama3.1-8b": {
+          "e_count": 198
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 73
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 251
+        },
+        "llama3.1-70b": {
+          "e_count": 172
+        },
+        "mistral-7b": {
+          "e_count": 186
+        }
+      }
+    },
+    {
+      "id": "p0044",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 63
+        },
+        "mistral-large": {
+          "e_count": 33
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 150
+        },
+        "claude-sonnet": {
+          "e_count": 18
+        },
+        "llama3.1-8b": {
+          "e_count": 209
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 157
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "gemma2-9b": {
+          "e_count": 191
+        },
+        "llama3.1-70b": {
+          "e_count": 155
+        },
+        "mistral-7b": {
+          "e_count": 166
+        }
+      }
+    },
+    {
+      "id": "p0045",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 24
+        },
+        "mistral-large": {
+          "e_count": 33
+        },
+        "amazon-nova-pro": {
+          "e_count": 10
+        },
+        "qwen2.5-7b": {
+          "e_count": 185
+        },
+        "claude-sonnet": {
+          "e_count": 7
+        },
+        "llama3.1-8b": {
+          "e_count": 153
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 126
+        },
+        "gpt-5.4": {
+          "e_count": 27
+        },
+        "gemma2-9b": {
+          "e_count": 182
+        },
+        "llama3.1-70b": {
+          "e_count": 185
+        },
+        "mistral-7b": {
+          "e_count": 182
+        }
+      }
+    },
+    {
+      "id": "p0046",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 45
+        },
+        "mistral-large": {
+          "e_count": 32
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 149
+        },
+        "claude-sonnet": {
+          "e_count": 21
+        },
+        "llama3.1-8b": {
+          "e_count": 149
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 127
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 166
+        },
+        "llama3.1-70b": {
+          "e_count": 135
+        },
+        "mistral-7b": {
+          "e_count": 168
+        }
+      }
+    },
+    {
+      "id": "p0047",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 253
+        },
+        "mistral-large": {
+          "e_count": 39
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 152
+        },
+        "claude-sonnet": {
+          "e_count": 40
+        },
+        "llama3.1-8b": {
+          "e_count": 234
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 119
+        },
+        "gpt-5.4": {
+          "e_count": 12
+        },
+        "gemma2-9b": {
+          "e_count": 176
+        },
+        "llama3.1-70b": {
+          "e_count": 163
+        },
+        "mistral-7b": {
+          "e_count": 199
+        }
+      }
+    },
+    {
+      "id": "p0048",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 167
+        },
+        "mistral-large": {
+          "e_count": 32
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 32
+        },
+        "llama3.1-8b": {
+          "e_count": 220
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 122
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 15
+        },
+        "llama3.1-70b": {
+          "e_count": 191
+        },
+        "mistral-7b": {
+          "e_count": 203
+        }
+      }
+    },
+    {
+      "id": "p0049",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 164
+        },
+        "mistral-large": {
+          "e_count": 45
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 191
+        },
+        "claude-sonnet": {
+          "e_count": 0
+        },
+        "llama3.1-8b": {
+          "e_count": 17
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 12
+        },
+        "claude-haiku": {
+          "e_count": 122
+        },
+        "gpt-5.4": {
+          "e_count": 16
+        },
+        "gemma2-9b": {
+          "e_count": 272
+        },
+        "llama3.1-70b": {
+          "e_count": 163
+        },
+        "mistral-7b": {
+          "e_count": 216
+        }
+      }
+    },
+    {
+      "id": "p0050",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 0
+        },
+        "mistral-large": {
+          "e_count": 35
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 3
+        },
+        "claude-sonnet": {
+          "e_count": 25
+        },
+        "llama3.1-8b": {
+          "e_count": 16
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 159
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 225
+        },
+        "llama3.1-70b": {
+          "e_count": 168
+        },
+        "mistral-7b": {
+          "e_count": 223
+        }
+      }
+    },
+    {
+      "id": "p0051",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 96
+        },
+        "mistral-large": {
+          "e_count": 53
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 24
+        },
+        "llama3.1-8b": {
+          "e_count": 183
+        },
+        "gemini-2.5-pro": {
+          "e_count": 11
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 108
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 176
+        },
+        "llama3.1-70b": {
+          "e_count": 175
+        },
+        "mistral-7b": {
+          "e_count": 163
+        }
+      }
+    },
+    {
+      "id": "p0052",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 37
+        },
+        "mistral-large": {
+          "e_count": 30
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 7
+        },
+        "llama3.1-8b": {
+          "e_count": 118
+        },
+        "gemini-2.5-pro": {
+          "e_count": 8
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "llama3.1-70b": {
+          "e_count": 136
+        },
+        "mistral-7b": {
+          "e_count": 175
+        }
+      }
+    },
+    {
+      "id": "p0053",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 104
+        },
+        "mistral-large": {
+          "e_count": 37
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 1
+        },
+        "llama3.1-8b": {
+          "e_count": 14
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 129
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 200
+        },
+        "llama3.1-70b": {
+          "e_count": 182
+        },
+        "mistral-7b": {
+          "e_count": 197
+        }
+      }
+    },
+    {
+      "id": "p0054",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 57
+        },
+        "mistral-large": {
+          "e_count": 19
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 106
+        },
+        "claude-sonnet": {
+          "e_count": 37
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 82
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 2
+        },
+        "llama3.1-70b": {
+          "e_count": 0
+        },
+        "mistral-7b": {
+          "e_count": 2
+        }
+      }
+    },
+    {
+      "id": "p0055",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 43
+        },
+        "mistral-large": {
+          "e_count": 11
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 37
+        },
+        "llama3.1-8b": {
+          "e_count": 99
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 18
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 15
+        },
+        "gemma2-9b": {
+          "e_count": 145
+        },
+        "llama3.1-70b": {
+          "e_count": 74
+        },
+        "mistral-7b": {
+          "e_count": 85
+        }
+      }
+    },
+    {
+      "id": "p0056",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 160
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 121
+        },
+        "claude-sonnet": {
+          "e_count": 9
+        },
+        "llama3.1-8b": {
+          "e_count": 151
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 8
+        },
+        "claude-haiku": {
+          "e_count": 90
+        },
+        "gpt-5.4": {
+          "e_count": 10
+        },
+        "gemma2-9b": {
+          "e_count": 93
+        },
+        "llama3.1-70b": {
+          "e_count": 144
+        },
+        "mistral-7b": {
+          "e_count": 156
+        }
+      }
+    },
+    {
+      "id": "p0057",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 117
+        },
+        "mistral-large": {
+          "e_count": 85
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 170
+        },
+        "claude-sonnet": {
+          "e_count": 5
+        },
+        "llama3.1-8b": {
+          "e_count": 219
+        },
+        "gemini-2.5-pro": {
+          "e_count": 12
+        },
+        "claude-opus": {
+          "e_count": 20
+        },
+        "claude-haiku": {
+          "e_count": 115
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "gemma2-9b": {
+          "e_count": 167
+        },
+        "llama3.1-70b": {
+          "e_count": 176
+        },
+        "mistral-7b": {
+          "e_count": 210
+        }
+      }
+    },
+    {
+      "id": "p0058",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 267
+        },
+        "mistral-large": {
+          "e_count": 52
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 9
+        },
+        "llama3.1-8b": {
+          "e_count": 174
+        },
+        "gemini-2.5-pro": {
+          "e_count": 8
+        },
+        "claude-opus": {
+          "e_count": 10
+        },
+        "claude-haiku": {
+          "e_count": 106
+        },
+        "gpt-5.4": {
+          "e_count": 27
+        },
+        "gemma2-9b": {
+          "e_count": 203
+        },
+        "llama3.1-70b": {
+          "e_count": 110
+        },
+        "mistral-7b": {
+          "e_count": 146
+        }
+      }
+    },
+    {
+      "id": "p0059",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 18
+        },
+        "mistral-large": {
+          "e_count": 50
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 3
+        },
+        "claude-sonnet": {
+          "e_count": 8
+        },
+        "llama3.1-8b": {
+          "e_count": 185
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 85
+        },
+        "gpt-5.4": {
+          "e_count": 21
+        },
+        "gemma2-9b": {
+          "e_count": 159
+        },
+        "llama3.1-70b": {
+          "e_count": 142
+        },
+        "mistral-7b": {
+          "e_count": 158
+        }
+      }
+    },
+    {
+      "id": "p0060",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 99
+        },
+        "mistral-large": {
+          "e_count": 52
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 19
+        },
+        "llama3.1-8b": {
+          "e_count": 168
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 103
+        },
+        "gpt-5.4": {
+          "e_count": 9
+        },
+        "gemma2-9b": {
+          "e_count": 164
+        },
+        "llama3.1-70b": {
+          "e_count": 128
+        },
+        "mistral-7b": {
+          "e_count": 159
+        }
+      }
+    },
+    {
+      "id": "p0061",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 31
+        },
+        "mistral-large": {
+          "e_count": 63
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 202
+        },
+        "claude-sonnet": {
+          "e_count": 99
+        },
+        "llama3.1-8b": {
+          "e_count": 230
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 13
+        },
+        "claude-haiku": {
+          "e_count": 111
+        },
+        "gpt-5.4": {
+          "e_count": 33
+        },
+        "gemma2-9b": {
+          "e_count": 224
+        },
+        "llama3.1-70b": {
+          "e_count": 196
+        },
+        "mistral-7b": {
+          "e_count": 233
+        }
+      }
+    },
+    {
+      "id": "p0062",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 43
+        },
+        "mistral-large": {
+          "e_count": 15
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 164
+        },
+        "claude-sonnet": {
+          "e_count": 48
+        },
+        "llama3.1-8b": {
+          "e_count": 12
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 129
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 179
+        },
+        "llama3.1-70b": {
+          "e_count": 108
+        },
+        "mistral-7b": {
+          "e_count": 165
+        }
+      }
+    },
+    {
+      "id": "p0063",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 94
+        },
+        "mistral-large": {
+          "e_count": 67
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 3
+        },
+        "claude-sonnet": {
+          "e_count": 7
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 18
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 44
+        },
+        "gemma2-9b": {
+          "e_count": 166
+        },
+        "llama3.1-70b": {
+          "e_count": 178
+        },
+        "mistral-7b": {
+          "e_count": 214
+        }
+      }
+    },
+    {
+      "id": "p0064",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 99
+        },
+        "mistral-large": {
+          "e_count": 40
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 192
+        },
+        "claude-sonnet": {
+          "e_count": 6
+        },
+        "llama3.1-8b": {
+          "e_count": 210
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 13
+        },
+        "claude-haiku": {
+          "e_count": 125
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 192
+        },
+        "llama3.1-70b": {
+          "e_count": 186
+        },
+        "mistral-7b": {
+          "e_count": 191
+        }
+      }
+    },
+    {
+      "id": "p0065",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 85
+        },
+        "mistral-large": {
+          "e_count": 42
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 148
+        },
+        "claude-sonnet": {
+          "e_count": 21
+        },
+        "llama3.1-8b": {
+          "e_count": 10
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 101
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "gemma2-9b": {
+          "e_count": 177
+        },
+        "llama3.1-70b": {
+          "e_count": 156
+        },
+        "mistral-7b": {
+          "e_count": 164
+        }
+      }
+    },
+    {
+      "id": "p0066",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 37
+        },
+        "mistral-large": {
+          "e_count": 43
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 143
+        },
+        "claude-sonnet": {
+          "e_count": 26
+        },
+        "llama3.1-8b": {
+          "e_count": 11
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 8
+        },
+        "claude-haiku": {
+          "e_count": 88
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 182
+        },
+        "llama3.1-70b": {
+          "e_count": 158
+        },
+        "mistral-7b": {
+          "e_count": 172
+        }
+      }
+    },
+    {
+      "id": "p0067",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 41
+        },
+        "mistral-large": {
+          "e_count": 50
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 156
+        },
+        "claude-sonnet": {
+          "e_count": 14
+        },
+        "llama3.1-8b": {
+          "e_count": 190
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 129
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 184
+        },
+        "llama3.1-70b": {
+          "e_count": 173
+        },
+        "mistral-7b": {
+          "e_count": 3
+        }
+      }
+    },
+    {
+      "id": "p0068",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 40
+        },
+        "mistral-large": {
+          "e_count": 37
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 147
+        },
+        "claude-sonnet": {
+          "e_count": 67
+        },
+        "llama3.1-8b": {
+          "e_count": 135
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 118
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 162
+        },
+        "llama3.1-70b": {
+          "e_count": 134
+        },
+        "mistral-7b": {
+          "e_count": 152
+        }
+      }
+    },
+    {
+      "id": "p0069",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 17
+        },
+        "mistral-large": {
+          "e_count": 23
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 189
+        },
+        "claude-sonnet": {
+          "e_count": 30
+        },
+        "llama3.1-8b": {
+          "e_count": 199
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 100
+        },
+        "gpt-5.4": {
+          "e_count": 22
+        },
+        "gemma2-9b": {
+          "e_count": 222
+        },
+        "llama3.1-70b": {
+          "e_count": 177
+        },
+        "mistral-7b": {
+          "e_count": 208
+        }
+      }
+    },
+    {
+      "id": "p0070",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 45
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 133
+        },
+        "claude-sonnet": {
+          "e_count": 8
+        },
+        "llama3.1-8b": {
+          "e_count": 116
+        },
+        "gemini-2.5-pro": {
+          "e_count": 9
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 67
+        },
+        "gpt-5.4": {
+          "e_count": 25
+        },
+        "gemma2-9b": {
+          "e_count": 82
+        },
+        "llama3.1-70b": {
+          "e_count": 136
+        },
+        "mistral-7b": {
+          "e_count": 145
+        }
+      }
+    },
+    {
+      "id": "p0071",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 56
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 161
+        },
+        "claude-sonnet": {
+          "e_count": 8
+        },
+        "llama3.1-8b": {
+          "e_count": 205
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 96
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 213
+        },
+        "llama3.1-70b": {
+          "e_count": 152
+        },
+        "mistral-7b": {
+          "e_count": 167
+        }
+      }
+    },
+    {
+      "id": "p0072",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 118
+        },
+        "mistral-large": {
+          "e_count": 21
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 128
+        },
+        "claude-sonnet": {
+          "e_count": 10
+        },
+        "llama3.1-8b": {
+          "e_count": 190
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 11
+        },
+        "claude-haiku": {
+          "e_count": 108
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 198
+        },
+        "llama3.1-70b": {
+          "e_count": 108
+        },
+        "mistral-7b": {
+          "e_count": 199
+        }
+      }
+    },
+    {
+      "id": "p0073",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 0
+        },
+        "mistral-large": {
+          "e_count": 30
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 17
+        },
+        "claude-sonnet": {
+          "e_count": 30
+        },
+        "llama3.1-8b": {
+          "e_count": 181
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 128
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 127
+        },
+        "llama3.1-70b": {
+          "e_count": 150
+        },
+        "mistral-7b": {
+          "e_count": 205
+        }
+      }
+    },
+    {
+      "id": "p0074",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 65
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 10
+        },
+        "llama3.1-8b": {
+          "e_count": 232
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 156
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 47
+        },
+        "llama3.1-70b": {
+          "e_count": 167
+        },
+        "mistral-7b": {
+          "e_count": 209
+        }
+      }
+    },
+    {
+      "id": "p0075",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 30
+        },
+        "mistral-large": {
+          "e_count": 29
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 28
+        },
+        "llama3.1-8b": {
+          "e_count": 8
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 79
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 177
+        },
+        "llama3.1-70b": {
+          "e_count": 154
+        },
+        "mistral-7b": {
+          "e_count": 201
+        }
+      }
+    },
+    {
+      "id": "p0076",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 125
+        },
+        "mistral-large": {
+          "e_count": 45
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 155
+        },
+        "claude-sonnet": {
+          "e_count": 75
+        },
+        "llama3.1-8b": {
+          "e_count": 186
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 113
+        },
+        "gpt-5.4": {
+          "e_count": 8
+        },
+        "gemma2-9b": {
+          "e_count": 186
+        },
+        "llama3.1-70b": {
+          "e_count": 151
+        },
+        "mistral-7b": {
+          "e_count": 162
+        }
+      }
+    },
+    {
+      "id": "p0077",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 55
+        },
+        "mistral-large": {
+          "e_count": 36
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 0
+        },
+        "llama3.1-8b": {
+          "e_count": 18
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 97
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "gemma2-9b": {
+          "e_count": 194
+        },
+        "llama3.1-70b": {
+          "e_count": 170
+        },
+        "mistral-7b": {
+          "e_count": 170
+        }
+      }
+    },
+    {
+      "id": "p0078",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 29
+        },
+        "mistral-large": {
+          "e_count": 33
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 138
+        },
+        "claude-sonnet": {
+          "e_count": 3
+        },
+        "llama3.1-8b": {
+          "e_count": 188
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 99
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 152
+        },
+        "llama3.1-70b": {
+          "e_count": 182
+        },
+        "mistral-7b": {
+          "e_count": 188
+        }
+      }
+    },
+    {
+      "id": "p0079",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 67
+        },
+        "mistral-large": {
+          "e_count": 46
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 2
+        },
+        "llama3.1-8b": {
+          "e_count": 193
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 145
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 3
+        },
+        "llama3.1-70b": {
+          "e_count": 173
+        },
+        "mistral-7b": {
+          "e_count": 204
+        }
+      }
+    },
+    {
+      "id": "p0080",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 0
+        },
+        "mistral-large": {
+          "e_count": 476
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 190
+        },
+        "claude-sonnet": {
+          "e_count": 4
+        },
+        "llama3.1-8b": {
+          "e_count": 4
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 145
+        },
+        "gpt-5.4": {
+          "e_count": 10
+        },
+        "gemma2-9b": {
+          "e_count": 85
+        },
+        "llama3.1-70b": {
+          "e_count": 198
+        },
+        "mistral-7b": {
+          "e_count": 239
+        }
+      }
+    },
+    {
+      "id": "p0081",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 344
+        },
+        "mistral-large": {
+          "e_count": 33
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 53
+        },
+        "llama3.1-8b": {
+          "e_count": 10
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 125
+        },
+        "gpt-5.4": {
+          "e_count": 15
+        },
+        "gemma2-9b": {
+          "e_count": 182
+        },
+        "llama3.1-70b": {
+          "e_count": 113
+        },
+        "mistral-7b": {
+          "e_count": 195
+        }
+      }
+    },
+    {
+      "id": "p0082",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 55
+        },
+        "mistral-large": {
+          "e_count": 36
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 196
+        },
+        "claude-sonnet": {
+          "e_count": 50
+        },
+        "llama3.1-8b": {
+          "e_count": 204
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 126
+        },
+        "gpt-5.4": {
+          "e_count": 23
+        },
+        "gemma2-9b": {
+          "e_count": 37
+        },
+        "llama3.1-70b": {
+          "e_count": 179
+        },
+        "mistral-7b": {
+          "e_count": 207
+        }
+      }
+    },
+    {
+      "id": "p0083",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 242
+        },
+        "mistral-large": {
+          "e_count": 45
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 139
+        },
+        "claude-sonnet": {
+          "e_count": 9
+        },
+        "llama3.1-8b": {
+          "e_count": 143
+        },
+        "gemini-2.5-pro": {
+          "e_count": 8
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 86
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 137
+        },
+        "llama3.1-70b": {
+          "e_count": 110
+        },
+        "mistral-7b": {
+          "e_count": 152
+        }
+      }
+    },
+    {
+      "id": "p0084",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 13
+        },
+        "mistral-large": {
+          "e_count": 34
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 69
+        },
+        "llama3.1-8b": {
+          "e_count": 15
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 120
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 196
+        },
+        "llama3.1-70b": {
+          "e_count": 147
+        },
+        "mistral-7b": {
+          "e_count": 225
+        }
+      }
+    },
+    {
+      "id": "p0085",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 29
+        },
+        "mistral-large": {
+          "e_count": 53
+        },
+        "amazon-nova-pro": {
+          "e_count": 8
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 93
+        },
+        "llama3.1-8b": {
+          "e_count": 32
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 111
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 240
+        },
+        "llama3.1-70b": {
+          "e_count": 232
+        },
+        "mistral-7b": {
+          "e_count": 224
+        }
+      }
+    },
+    {
+      "id": "p0086",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 20
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 134
+        },
+        "claude-sonnet": {
+          "e_count": 26
+        },
+        "llama3.1-8b": {
+          "e_count": 209
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 172
+        },
+        "gpt-5.4": {
+          "e_count": 25
+        },
+        "gemma2-9b": {
+          "e_count": 93
+        },
+        "llama3.1-70b": {
+          "e_count": 181
+        },
+        "mistral-7b": {
+          "e_count": 151
+        }
+      }
+    },
+    {
+      "id": "p0087",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 5
+        },
+        "mistral-large": {
+          "e_count": 71
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 22
+        },
+        "llama3.1-8b": {
+          "e_count": 148
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 96
+        },
+        "gpt-5.4": {
+          "e_count": 21
+        },
+        "gemma2-9b": {
+          "e_count": 132
+        },
+        "llama3.1-70b": {
+          "e_count": 128
+        },
+        "mistral-7b": {
+          "e_count": 180
+        }
+      }
+    },
+    {
+      "id": "p0088",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 37
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 31
+        },
+        "llama3.1-8b": {
+          "e_count": 8
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 155
+        },
+        "gpt-5.4": {
+          "e_count": 27
+        },
+        "gemma2-9b": {
+          "e_count": 170
+        },
+        "llama3.1-70b": {
+          "e_count": 152
+        },
+        "mistral-7b": {
+          "e_count": 210
+        }
+      }
+    },
+    {
+      "id": "p0089",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 139
+        },
+        "mistral-large": {
+          "e_count": 69
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 10
+        },
+        "llama3.1-8b": {
+          "e_count": 209
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 135
+        },
+        "gpt-5.4": {
+          "e_count": 36
+        },
+        "gemma2-9b": {
+          "e_count": 203
+        },
+        "llama3.1-70b": {
+          "e_count": 170
+        },
+        "mistral-7b": {
+          "e_count": 202
+        }
+      }
+    },
+    {
+      "id": "p0090",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 10
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 130
+        },
+        "claude-sonnet": {
+          "e_count": 6
+        },
+        "llama3.1-8b": {
+          "e_count": 137
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 58
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 139
+        },
+        "llama3.1-70b": {
+          "e_count": 108
+        },
+        "mistral-7b": {
+          "e_count": 148
+        }
+      }
+    },
+    {
+      "id": "p0091",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 28
+        },
+        "mistral-large": {
+          "e_count": 34
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 9
+        },
+        "llama3.1-8b": {
+          "e_count": 8
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 90
+        },
+        "gpt-5.4": {
+          "e_count": 26
+        },
+        "gemma2-9b": {
+          "e_count": 214
+        },
+        "llama3.1-70b": {
+          "e_count": 120
+        },
+        "mistral-7b": {
+          "e_count": 186
+        }
+      }
+    },
+    {
+      "id": "p0092",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 23
+        },
+        "mistral-large": {
+          "e_count": 50
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 171
+        },
+        "claude-sonnet": {
+          "e_count": 93
+        },
+        "llama3.1-8b": {
+          "e_count": 178
+        },
+        "gemini-2.5-pro": {
+          "e_count": 14
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 131
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 6
+        },
+        "llama3.1-70b": {
+          "e_count": 167
+        },
+        "mistral-7b": {
+          "e_count": 233
+        }
+      }
+    },
+    {
+      "id": "p0093",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 120
+        },
+        "mistral-large": {
+          "e_count": 33
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 126
+        },
+        "claude-sonnet": {
+          "e_count": 17
+        },
+        "llama3.1-8b": {
+          "e_count": 209
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 75
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 175
+        },
+        "llama3.1-70b": {
+          "e_count": 35
+        },
+        "mistral-7b": {
+          "e_count": 203
+        }
+      }
+    },
+    {
+      "id": "p0094",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 57
+        },
+        "mistral-large": {
+          "e_count": 28
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 162
+        },
+        "claude-sonnet": {
+          "e_count": 39
+        },
+        "llama3.1-8b": {
+          "e_count": 176
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 114
+        },
+        "gpt-5.4": {
+          "e_count": 12
+        },
+        "gemma2-9b": {
+          "e_count": 205
+        },
+        "llama3.1-70b": {
+          "e_count": 146
+        },
+        "mistral-7b": {
+          "e_count": 181
+        }
+      }
+    },
+    {
+      "id": "p0095",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 19
+        },
+        "mistral-large": {
+          "e_count": 31
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 134
+        },
+        "claude-sonnet": {
+          "e_count": 18
+        },
+        "llama3.1-8b": {
+          "e_count": 14
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 9
+        },
+        "claude-haiku": {
+          "e_count": 114
+        },
+        "gpt-5.4": {
+          "e_count": 29
+        },
+        "gemma2-9b": {
+          "e_count": 213
+        },
+        "llama3.1-70b": {
+          "e_count": 154
+        },
+        "mistral-7b": {
+          "e_count": 242
+        }
+      }
+    },
+    {
+      "id": "p0096",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 29
+        },
+        "mistral-large": {
+          "e_count": 29
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 130
+        },
+        "claude-sonnet": {
+          "e_count": 24
+        },
+        "llama3.1-8b": {
+          "e_count": 130
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 15
+        },
+        "claude-haiku": {
+          "e_count": 125
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 176
+        },
+        "llama3.1-70b": {
+          "e_count": 132
+        },
+        "mistral-7b": {
+          "e_count": 170
+        }
+      }
+    },
+    {
+      "id": "p0097",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 37
+        },
+        "mistral-large": {
+          "e_count": 45
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 21
+        },
+        "llama3.1-8b": {
+          "e_count": 131
+        },
+        "gemini-2.5-pro": {
+          "e_count": 13
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 15
+        },
+        "gemma2-9b": {
+          "e_count": 0
+        },
+        "llama3.1-70b": {
+          "e_count": 128
+        },
+        "mistral-7b": {
+          "e_count": 2
+        }
+      }
+    },
+    {
+      "id": "p0098",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 52
+        },
+        "mistral-large": {
+          "e_count": 8
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 184
+        },
+        "claude-sonnet": {
+          "e_count": 5
+        },
+        "llama3.1-8b": {
+          "e_count": 16
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 134
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 210
+        },
+        "llama3.1-70b": {
+          "e_count": 191
+        },
+        "mistral-7b": {
+          "e_count": 197
+        }
+      }
+    },
+    {
+      "id": "p0099",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 202
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 42
+        },
+        "llama3.1-8b": {
+          "e_count": 8
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 8
+        },
+        "claude-haiku": {
+          "e_count": 96
+        },
+        "gpt-5.4": {
+          "e_count": 24
+        },
+        "gemma2-9b": {
+          "e_count": 0
+        },
+        "llama3.1-70b": {
+          "e_count": 122
+        },
+        "mistral-7b": {
+          "e_count": 145
+        }
+      }
+    },
+    {
+      "id": "p0100",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 105
+        },
+        "mistral-large": {
+          "e_count": 42
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 28
+        },
+        "llama3.1-8b": {
+          "e_count": 7
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 146
+        },
+        "gpt-5.4": {
+          "e_count": 20
+        },
+        "gemma2-9b": {
+          "e_count": 1
+        },
+        "llama3.1-70b": {
+          "e_count": 104
+        },
+        "mistral-7b": {
+          "e_count": 202
+        }
+      }
+    },
+    {
+      "id": "p0101",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 136
+        },
+        "mistral-large": {
+          "e_count": 48
+        },
+        "amazon-nova-pro": {
+          "e_count": 8
+        },
+        "qwen2.5-7b": {
+          "e_count": 175
+        },
+        "claude-sonnet": {
+          "e_count": 22
+        },
+        "llama3.1-8b": {
+          "e_count": 12
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 130
+        },
+        "gpt-5.4": {
+          "e_count": 16
+        },
+        "gemma2-9b": {
+          "e_count": 205
+        },
+        "llama3.1-70b": {
+          "e_count": 156
+        },
+        "mistral-7b": {
+          "e_count": 217
+        }
+      }
+    },
+    {
+      "id": "p0102",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 86
+        },
+        "mistral-large": {
+          "e_count": 36
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 176
+        },
+        "claude-sonnet": {
+          "e_count": 10
+        },
+        "llama3.1-8b": {
+          "e_count": 172
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 141
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 187
+        },
+        "llama3.1-70b": {
+          "e_count": 159
+        },
+        "mistral-7b": {
+          "e_count": 212
+        }
+      }
+    },
+    {
+      "id": "p0103",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 119
+        },
+        "mistral-large": {
+          "e_count": 39
+        },
+        "amazon-nova-pro": {
+          "e_count": 10
+        },
+        "qwen2.5-7b": {
+          "e_count": 6
+        },
+        "claude-sonnet": {
+          "e_count": 24
+        },
+        "llama3.1-8b": {
+          "e_count": 249
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 0
+        },
+        "claude-haiku": {
+          "e_count": 156
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 210
+        },
+        "llama3.1-70b": {
+          "e_count": 208
+        },
+        "mistral-7b": {
+          "e_count": 225
+        }
+      }
+    },
+    {
+      "id": "p0104",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 27
+        },
+        "mistral-large": {
+          "e_count": 343
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 202
+        },
+        "claude-sonnet": {
+          "e_count": 11
+        },
+        "llama3.1-8b": {
+          "e_count": 221
+        },
+        "gemini-2.5-pro": {
+          "e_count": 10
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 114
+        },
+        "gpt-5.4": {
+          "e_count": 23
+        },
+        "gemma2-9b": {
+          "e_count": 158
+        },
+        "llama3.1-70b": {
+          "e_count": 190
+        },
+        "mistral-7b": {
+          "e_count": 237
+        }
+      }
+    },
+    {
+      "id": "p0105",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 58
+        },
+        "mistral-large": {
+          "e_count": 29
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 164
+        },
+        "claude-sonnet": {
+          "e_count": 9
+        },
+        "llama3.1-8b": {
+          "e_count": 185
+        },
+        "gemini-2.5-pro": {
+          "e_count": 11
+        },
+        "claude-opus": {
+          "e_count": 13
+        },
+        "claude-haiku": {
+          "e_count": 106
+        },
+        "gpt-5.4": {
+          "e_count": 24
+        },
+        "gemma2-9b": {
+          "e_count": 183
+        },
+        "llama3.1-70b": {
+          "e_count": 194
+        },
+        "mistral-7b": {
+          "e_count": 210
+        }
+      }
+    },
+    {
+      "id": "p0106",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 19
+        },
+        "mistral-large": {
+          "e_count": 63
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 11
+        },
+        "claude-sonnet": {
+          "e_count": 16
+        },
+        "llama3.1-8b": {
+          "e_count": 3
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 122
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 215
+        },
+        "llama3.1-70b": {
+          "e_count": 200
+        },
+        "mistral-7b": {
+          "e_count": 224
+        }
+      }
+    },
+    {
+      "id": "p0107",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 248
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 16
+        },
+        "llama3.1-8b": {
+          "e_count": 203
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 25
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 20
+        },
+        "gemma2-9b": {
+          "e_count": 195
+        },
+        "llama3.1-70b": {
+          "e_count": 143
+        },
+        "mistral-7b": {
+          "e_count": 209
+        }
+      }
+    },
+    {
+      "id": "p0108",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 29
+        },
+        "mistral-large": {
+          "e_count": 37
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 221
+        },
+        "claude-sonnet": {
+          "e_count": 11
+        },
+        "llama3.1-8b": {
+          "e_count": 234
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 145
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 235
+        },
+        "llama3.1-70b": {
+          "e_count": 208
+        },
+        "mistral-7b": {
+          "e_count": 250
+        }
+      }
+    },
+    {
+      "id": "p0109",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 22
+        },
+        "mistral-large": {
+          "e_count": 11
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 125
+        },
+        "claude-sonnet": {
+          "e_count": 6
+        },
+        "llama3.1-8b": {
+          "e_count": 2
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 131
+        },
+        "gpt-5.4": {
+          "e_count": 6
+        },
+        "gemma2-9b": {
+          "e_count": 0
+        },
+        "llama3.1-70b": {
+          "e_count": 119
+        },
+        "mistral-7b": {
+          "e_count": 169
+        }
+      }
+    },
+    {
+      "id": "p0110",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 124
+        },
+        "mistral-large": {
+          "e_count": 22
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 25
+        },
+        "llama3.1-8b": {
+          "e_count": 26
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 9
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 6
+        },
+        "gemma2-9b": {
+          "e_count": 194
+        },
+        "llama3.1-70b": {
+          "e_count": 178
+        },
+        "mistral-7b": {
+          "e_count": 206
+        }
+      }
+    },
+    {
+      "id": "p0111",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 0
+        },
+        "mistral-large": {
+          "e_count": 26
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 20
+        },
+        "llama3.1-8b": {
+          "e_count": 177
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 18
+        },
+        "claude-haiku": {
+          "e_count": 78
+        },
+        "gpt-5.4": {
+          "e_count": 7
+        },
+        "gemma2-9b": {
+          "e_count": 0
+        },
+        "llama3.1-70b": {
+          "e_count": 150
+        },
+        "mistral-7b": {
+          "e_count": 179
+        }
+      }
+    },
+    {
+      "id": "p0112",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 91
+        },
+        "mistral-large": {
+          "e_count": 28
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 155
+        },
+        "claude-sonnet": {
+          "e_count": 19
+        },
+        "llama3.1-8b": {
+          "e_count": 143
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 64
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 190
+        },
+        "llama3.1-70b": {
+          "e_count": 137
+        },
+        "mistral-7b": {
+          "e_count": 143
+        }
+      }
+    },
+    {
+      "id": "p0113",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 19
+        },
+        "mistral-large": {
+          "e_count": 20
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 142
+        },
+        "claude-sonnet": {
+          "e_count": 13
+        },
+        "llama3.1-8b": {
+          "e_count": 176
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 0
+        },
+        "claude-haiku": {
+          "e_count": 88
+        },
+        "gpt-5.4": {
+          "e_count": 10
+        },
+        "gemma2-9b": {
+          "e_count": 161
+        },
+        "llama3.1-70b": {
+          "e_count": 166
+        },
+        "mistral-7b": {
+          "e_count": 192
+        }
+      }
+    },
+    {
+      "id": "p0114",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 29
+        },
+        "mistral-large": {
+          "e_count": 55
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 92
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 126
+        },
+        "gpt-5.4": {
+          "e_count": 34
+        },
+        "gemma2-9b": {
+          "e_count": 73
+        },
+        "llama3.1-70b": {
+          "e_count": 136
+        },
+        "mistral-7b": {
+          "e_count": 159
+        }
+      }
+    },
+    {
+      "id": "p0115",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 35
+        },
+        "mistral-large": {
+          "e_count": 30
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 45
+        },
+        "llama3.1-8b": {
+          "e_count": 209
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 18
+        },
+        "claude-haiku": {
+          "e_count": 109
+        },
+        "gpt-5.4": {
+          "e_count": 12
+        },
+        "gemma2-9b": {
+          "e_count": 109
+        },
+        "llama3.1-70b": {
+          "e_count": 180
+        },
+        "mistral-7b": {
+          "e_count": 179
+        }
+      }
+    },
+    {
+      "id": "p0116",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 15
+        },
+        "mistral-large": {
+          "e_count": 28
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 4
+        },
+        "claude-sonnet": {
+          "e_count": 4
+        },
+        "llama3.1-8b": {
+          "e_count": 194
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 51
+        },
+        "gpt-5.4": {
+          "e_count": 8
+        },
+        "gemma2-9b": {
+          "e_count": 160
+        },
+        "llama3.1-70b": {
+          "e_count": 141
+        },
+        "mistral-7b": {
+          "e_count": 0
+        }
+      }
+    },
+    {
+      "id": "p0117",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 60
+        },
+        "mistral-large": {
+          "e_count": 30
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 172
+        },
+        "claude-sonnet": {
+          "e_count": 37
+        },
+        "llama3.1-8b": {
+          "e_count": 8
+        },
+        "gemini-2.5-pro": {
+          "e_count": 9
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 81
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "gemma2-9b": {
+          "e_count": 3
+        },
+        "llama3.1-70b": {
+          "e_count": 178
+        },
+        "mistral-7b": {
+          "e_count": 229
+        }
+      }
+    },
+    {
+      "id": "p0118",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 44
+        },
+        "mistral-large": {
+          "e_count": 25
+        },
+        "amazon-nova-pro": {
+          "e_count": 8
+        },
+        "qwen2.5-7b": {
+          "e_count": 168
+        },
+        "claude-sonnet": {
+          "e_count": 82
+        },
+        "llama3.1-8b": {
+          "e_count": 20
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 104
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 175
+        },
+        "llama3.1-70b": {
+          "e_count": 144
+        },
+        "mistral-7b": {
+          "e_count": 179
+        }
+      }
+    },
+    {
+      "id": "p0119",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 67
+        },
+        "mistral-large": {
+          "e_count": 42
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 194
+        },
+        "claude-sonnet": {
+          "e_count": 16
+        },
+        "llama3.1-8b": {
+          "e_count": 7
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 162
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 209
+        },
+        "llama3.1-70b": {
+          "e_count": 181
+        },
+        "mistral-7b": {
+          "e_count": 11
+        }
+      }
+    },
+    {
+      "id": "p0120",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 75
+        },
+        "mistral-large": {
+          "e_count": 23
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 164
+        },
+        "claude-sonnet": {
+          "e_count": 6
+        },
+        "llama3.1-8b": {
+          "e_count": 232
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 134
+        },
+        "gpt-5.4": {
+          "e_count": 36
+        },
+        "gemma2-9b": {
+          "e_count": 198
+        },
+        "llama3.1-70b": {
+          "e_count": 114
+        },
+        "mistral-7b": {
+          "e_count": 4
+        }
+      }
+    },
+    {
+      "id": "p0121",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 129
+        },
+        "mistral-large": {
+          "e_count": 47
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 31
+        },
+        "llama3.1-8b": {
+          "e_count": 166
+        },
+        "gemini-2.5-pro": {
+          "e_count": 18
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 122
+        },
+        "gpt-5.4": {
+          "e_count": 22
+        },
+        "gemma2-9b": {
+          "e_count": 156
+        },
+        "llama3.1-70b": {
+          "e_count": 176
+        },
+        "mistral-7b": {
+          "e_count": 242
+        }
+      }
+    },
+    {
+      "id": "p0122",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 73
+        },
+        "mistral-large": {
+          "e_count": 15
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 143
+        },
+        "claude-sonnet": {
+          "e_count": 28
+        },
+        "llama3.1-8b": {
+          "e_count": 10
+        },
+        "gemini-2.5-pro": {
+          "e_count": 7
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 102
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 215
+        },
+        "llama3.1-70b": {
+          "e_count": 152
+        },
+        "mistral-7b": {
+          "e_count": 234
+        }
+      }
+    },
+    {
+      "id": "p0123",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 143
+        },
+        "mistral-large": {
+          "e_count": 27
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 57
+        },
+        "llama3.1-8b": {
+          "e_count": 139
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 143
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 25
+        },
+        "llama3.1-70b": {
+          "e_count": 198
+        },
+        "mistral-7b": {
+          "e_count": 163
+        }
+      }
+    },
+    {
+      "id": "p0124",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 1244
+        },
+        "mistral-large": {
+          "e_count": 55
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 152
+        },
+        "claude-sonnet": {
+          "e_count": 22
+        },
+        "llama3.1-8b": {
+          "e_count": 191
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 75
+        },
+        "gpt-5.4": {
+          "e_count": 9
+        },
+        "gemma2-9b": {
+          "e_count": 189
+        },
+        "llama3.1-70b": {
+          "e_count": 116
+        },
+        "mistral-7b": {
+          "e_count": 166
+        }
+      }
+    },
+    {
+      "id": "p0125",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 23
+        },
+        "mistral-large": {
+          "e_count": 32
+        },
+        "amazon-nova-pro": {
+          "e_count": 6
+        },
+        "qwen2.5-7b": {
+          "e_count": 198
+        },
+        "claude-sonnet": {
+          "e_count": 34
+        },
+        "llama3.1-8b": {
+          "e_count": 208
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 119
+        },
+        "gpt-5.4": {
+          "e_count": 11
+        },
+        "gemma2-9b": {
+          "e_count": 203
+        },
+        "llama3.1-70b": {
+          "e_count": 102
+        },
+        "mistral-7b": {
+          "e_count": 215
+        }
+      }
+    },
+    {
+      "id": "p0126",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 100
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 136
+        },
+        "claude-sonnet": {
+          "e_count": 17
+        },
+        "llama3.1-8b": {
+          "e_count": 209
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 210
+        },
+        "gpt-5.4": {
+          "e_count": 26
+        },
+        "gemma2-9b": {
+          "e_count": 213
+        },
+        "llama3.1-70b": {
+          "e_count": 234
+        },
+        "mistral-7b": {
+          "e_count": 176
+        }
+      }
+    },
+    {
+      "id": "p0127",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 54
+        },
+        "mistral-large": {
+          "e_count": 20
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 178
+        },
+        "claude-sonnet": {
+          "e_count": 23
+        },
+        "llama3.1-8b": {
+          "e_count": 187
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 11
+        },
+        "claude-haiku": {
+          "e_count": 94
+        },
+        "gpt-5.4": {
+          "e_count": 12
+        },
+        "gemma2-9b": {
+          "e_count": 61
+        },
+        "llama3.1-70b": {
+          "e_count": 174
+        },
+        "mistral-7b": {
+          "e_count": 194
+        }
+      }
+    },
+    {
+      "id": "p0128",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 105
+        },
+        "mistral-large": {
+          "e_count": 34
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 121
+        },
+        "claude-sonnet": {
+          "e_count": 23
+        },
+        "llama3.1-8b": {
+          "e_count": 208
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 8
+        },
+        "claude-haiku": {
+          "e_count": 93
+        },
+        "gpt-5.4": {
+          "e_count": 21
+        },
+        "gemma2-9b": {
+          "e_count": 216
+        },
+        "llama3.1-70b": {
+          "e_count": 217
+        },
+        "mistral-7b": {
+          "e_count": 211
+        }
+      }
+    },
+    {
+      "id": "p0129",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 72
+        },
+        "mistral-large": {
+          "e_count": 57
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 202
+        },
+        "claude-sonnet": {
+          "e_count": 4
+        },
+        "llama3.1-8b": {
+          "e_count": 247
+        },
+        "gemini-2.5-pro": {
+          "e_count": 12
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 95
+        },
+        "gpt-5.4": {
+          "e_count": 17
+        },
+        "gemma2-9b": {
+          "e_count": 219
+        },
+        "llama3.1-70b": {
+          "e_count": 192
+        },
+        "mistral-7b": {
+          "e_count": 256
+        }
+      }
+    },
+    {
+      "id": "p0130",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 94
+        },
+        "mistral-large": {
+          "e_count": 60
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 7
+        },
+        "llama3.1-8b": {
+          "e_count": 194
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 5
+        },
+        "claude-haiku": {
+          "e_count": 171
+        },
+        "gpt-5.4": {
+          "e_count": 16
+        },
+        "gemma2-9b": {
+          "e_count": 211
+        },
+        "llama3.1-70b": {
+          "e_count": 206
+        },
+        "mistral-7b": {
+          "e_count": 237
+        }
+      }
+    },
+    {
+      "id": "p0131",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 12
+        },
+        "mistral-large": {
+          "e_count": 44
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 8
+        },
+        "llama3.1-8b": {
+          "e_count": 1
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 8
+        },
+        "claude-haiku": {
+          "e_count": 148
+        },
+        "gpt-5.4": {
+          "e_count": 32
+        },
+        "gemma2-9b": {
+          "e_count": 235
+        },
+        "llama3.1-70b": {
+          "e_count": 194
+        },
+        "mistral-7b": {
+          "e_count": 215
+        }
+      }
+    },
+    {
+      "id": "p0132",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 12
+        },
+        "mistral-large": {
+          "e_count": 26
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 4
+        },
+        "claude-sonnet": {
+          "e_count": 40
+        },
+        "llama3.1-8b": {
+          "e_count": 221
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 115
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 208
+        },
+        "llama3.1-70b": {
+          "e_count": 203
+        },
+        "mistral-7b": {
+          "e_count": 204
+        }
+      }
+    },
+    {
+      "id": "p0133",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 17
+        },
+        "mistral-large": {
+          "e_count": 28
+        },
+        "amazon-nova-pro": {
+          "e_count": 8
+        },
+        "qwen2.5-7b": {
+          "e_count": 107
+        },
+        "claude-sonnet": {
+          "e_count": 13
+        },
+        "llama3.1-8b": {
+          "e_count": 187
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 143
+        },
+        "gpt-5.4": {
+          "e_count": 20
+        },
+        "gemma2-9b": {
+          "e_count": 76
+        },
+        "llama3.1-70b": {
+          "e_count": 174
+        },
+        "mistral-7b": {
+          "e_count": 180
+        }
+      }
+    },
+    {
+      "id": "p0134",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 0
+        },
+        "mistral-large": {
+          "e_count": 44
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 216
+        },
+        "claude-sonnet": {
+          "e_count": 17
+        },
+        "llama3.1-8b": {
+          "e_count": 206
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 190
+        },
+        "llama3.1-70b": {
+          "e_count": 183
+        },
+        "mistral-7b": {
+          "e_count": 205
+        }
+      }
+    },
+    {
+      "id": "p0135",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 115
+        },
+        "mistral-large": {
+          "e_count": 26
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 97
+        },
+        "claude-sonnet": {
+          "e_count": 30
+        },
+        "llama3.1-8b": {
+          "e_count": 129
+        },
+        "gemini-2.5-pro": {
+          "e_count": 8
+        },
+        "claude-opus": {
+          "e_count": 14
+        },
+        "claude-haiku": {
+          "e_count": 100
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 114
+        },
+        "llama3.1-70b": {
+          "e_count": 122
+        },
+        "mistral-7b": {
+          "e_count": 120
+        }
+      }
+    },
+    {
+      "id": "p0136",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 25
+        },
+        "mistral-large": {
+          "e_count": 23
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 11
+        },
+        "llama3.1-8b": {
+          "e_count": 196
+        },
+        "gemini-2.5-pro": {
+          "e_count": 8
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 115
+        },
+        "gpt-5.4": {
+          "e_count": 21
+        },
+        "gemma2-9b": {
+          "e_count": 176
+        },
+        "llama3.1-70b": {
+          "e_count": 152
+        },
+        "mistral-7b": {
+          "e_count": 204
+        }
+      }
+    },
+    {
+      "id": "p0137",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 36
+        },
+        "mistral-large": {
+          "e_count": 27
+        },
+        "amazon-nova-pro": {
+          "e_count": 7
+        },
+        "qwen2.5-7b": {
+          "e_count": 158
+        },
+        "claude-sonnet": {
+          "e_count": 62
+        },
+        "llama3.1-8b": {
+          "e_count": 175
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 10
+        },
+        "claude-haiku": {
+          "e_count": 115
+        },
+        "gpt-5.4": {
+          "e_count": 25
+        },
+        "gemma2-9b": {
+          "e_count": 200
+        },
+        "llama3.1-70b": {
+          "e_count": 151
+        },
+        "mistral-7b": {
+          "e_count": 145
+        }
+      }
+    },
+    {
+      "id": "p0138",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 26
+        },
+        "mistral-large": {
+          "e_count": 30
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 163
+        },
+        "claude-sonnet": {
+          "e_count": 16
+        },
+        "llama3.1-8b": {
+          "e_count": 158
+        },
+        "gemini-2.5-pro": {
+          "e_count": 9
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 67
+        },
+        "gpt-5.4": {
+          "e_count": 8
+        },
+        "gemma2-9b": {
+          "e_count": 157
+        },
+        "llama3.1-70b": {
+          "e_count": 81
+        },
+        "mistral-7b": {
+          "e_count": 172
+        }
+      }
+    },
+    {
+      "id": "p0139",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 25
+        },
+        "mistral-large": {
+          "e_count": 25
+        },
+        "amazon-nova-pro": {
+          "e_count": 5
+        },
+        "qwen2.5-7b": {
+          "e_count": 1
+        },
+        "claude-sonnet": {
+          "e_count": 12
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 134
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 172
+        },
+        "llama3.1-70b": {
+          "e_count": 139
+        },
+        "mistral-7b": {
+          "e_count": 1
+        }
+      }
+    },
+    {
+      "id": "p0140",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 91
+        },
+        "mistral-large": {
+          "e_count": 61
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 204
+        },
+        "claude-sonnet": {
+          "e_count": 40
+        },
+        "llama3.1-8b": {
+          "e_count": 215
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 17
+        },
+        "claude-haiku": {
+          "e_count": 149
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 224
+        },
+        "llama3.1-70b": {
+          "e_count": 185
+        },
+        "mistral-7b": {
+          "e_count": 233
+        }
+      }
+    },
+    {
+      "id": "p0141",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 113
+        },
+        "mistral-large": {
+          "e_count": 41
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 7
+        },
+        "claude-sonnet": {
+          "e_count": 40
+        },
+        "llama3.1-8b": {
+          "e_count": 111
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 73
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 138
+        },
+        "llama3.1-70b": {
+          "e_count": 129
+        },
+        "mistral-7b": {
+          "e_count": 152
+        }
+      }
+    },
+    {
+      "id": "p0142",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 103
+        },
+        "mistral-large": {
+          "e_count": 39
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 166
+        },
+        "claude-sonnet": {
+          "e_count": 7
+        },
+        "llama3.1-8b": {
+          "e_count": 188
+        },
+        "gemini-2.5-pro": {
+          "e_count": 6
+        },
+        "claude-opus": {
+          "e_count": 0
+        },
+        "claude-haiku": {
+          "e_count": 107
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 176
+        },
+        "llama3.1-70b": {
+          "e_count": 173
+        },
+        "mistral-7b": {
+          "e_count": 157
+        }
+      }
+    },
+    {
+      "id": "p0143",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 25
+        },
+        "mistral-large": {
+          "e_count": 21
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 186
+        },
+        "claude-sonnet": {
+          "e_count": 50
+        },
+        "llama3.1-8b": {
+          "e_count": 227
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 133
+        },
+        "gpt-5.4": {
+          "e_count": 8
+        },
+        "gemma2-9b": {
+          "e_count": 303
+        },
+        "llama3.1-70b": {
+          "e_count": 198
+        },
+        "mistral-7b": {
+          "e_count": 230
+        }
+      }
+    },
+    {
+      "id": "p0144",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 94
+        },
+        "mistral-large": {
+          "e_count": 38
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 176
+        },
+        "claude-sonnet": {
+          "e_count": 14
+        },
+        "llama3.1-8b": {
+          "e_count": 195
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 7
+        },
+        "claude-haiku": {
+          "e_count": 131
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 194
+        },
+        "llama3.1-70b": {
+          "e_count": 169
+        },
+        "mistral-7b": {
+          "e_count": 198
+        }
+      }
+    },
+    {
+      "id": "p0145",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 45
+        },
+        "mistral-large": {
+          "e_count": 24
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 36
+        },
+        "llama3.1-8b": {
+          "e_count": 2
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 0
+        },
+        "claude-haiku": {
+          "e_count": 0
+        },
+        "gpt-5.4": {
+          "e_count": 8
+        },
+        "gemma2-9b": {
+          "e_count": 165
+        },
+        "llama3.1-70b": {
+          "e_count": 51
+        },
+        "mistral-7b": {
+          "e_count": 138
+        }
+      }
+    },
+    {
+      "id": "p0146",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 24
+        },
+        "mistral-large": {
+          "e_count": 21
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 5
+        },
+        "claude-sonnet": {
+          "e_count": 93
+        },
+        "llama3.1-8b": {
+          "e_count": 8
+        },
+        "gemini-2.5-pro": {
+          "e_count": 5
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 75
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 0
+        },
+        "llama3.1-70b": {
+          "e_count": 121
+        },
+        "mistral-7b": {
+          "e_count": 188
+        }
+      }
+    },
+    {
+      "id": "p0147",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 10
+        },
+        "mistral-large": {
+          "e_count": 73
+        },
+        "amazon-nova-pro": {
+          "e_count": 3
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 28
+        },
+        "llama3.1-8b": {
+          "e_count": 177
+        },
+        "gemini-2.5-pro": {
+          "e_count": 3
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 123
+        },
+        "gpt-5.4": {
+          "e_count": 12
+        },
+        "gemma2-9b": {
+          "e_count": 77
+        },
+        "llama3.1-70b": {
+          "e_count": 150
+        },
+        "mistral-7b": {
+          "e_count": 193
+        }
+      }
+    },
+    {
+      "id": "p0148",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 76
+        },
+        "mistral-large": {
+          "e_count": 23
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 4
+        },
+        "llama3.1-8b": {
+          "e_count": 138
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 110
+        },
+        "gpt-5.4": {
+          "e_count": 19
+        },
+        "gemma2-9b": {
+          "e_count": 104
+        },
+        "llama3.1-70b": {
+          "e_count": 172
+        },
+        "mistral-7b": {
+          "e_count": 20
+        }
+      }
+    },
+    {
+      "id": "p0149",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 23
+        },
+        "mistral-large": {
+          "e_count": 36
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 158
+        },
+        "claude-sonnet": {
+          "e_count": 36
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 89
+        },
+        "gpt-5.4": {
+          "e_count": 7
+        },
+        "gemma2-9b": {
+          "e_count": 112
+        },
+        "llama3.1-70b": {
+          "e_count": 135
+        },
+        "mistral-7b": {
+          "e_count": 163
+        }
+      }
+    },
+    {
+      "id": "p0150",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 98
+        },
+        "mistral-large": {
+          "e_count": 2694
+        },
+        "amazon-nova-pro": {
+          "e_count": 4
+        },
+        "qwen2.5-7b": {
+          "e_count": 99
+        },
+        "claude-sonnet": {
+          "e_count": 28
+        },
+        "llama3.1-8b": {
+          "e_count": 14
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 90
+        },
+        "gpt-5.4": {
+          "e_count": 20
+        },
+        "gemma2-9b": {
+          "e_count": 157
+        },
+        "llama3.1-70b": {
+          "e_count": 157
+        },
+        "mistral-7b": {
+          "e_count": 175
+        }
+      }
+    },
+    {
+      "id": "p0151",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 43
+        },
+        "mistral-large": {
+          "e_count": 16
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 2
+        },
+        "claude-sonnet": {
+          "e_count": 57
+        },
+        "llama3.1-8b": {
+          "e_count": 194
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 86
+        },
+        "gpt-5.4": {
+          "e_count": 25
+        },
+        "gemma2-9b": {
+          "e_count": 189
+        },
+        "llama3.1-70b": {
+          "e_count": 151
+        },
+        "mistral-7b": {
+          "e_count": 190
+        }
+      }
+    },
+    {
+      "id": "p0152",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 14
+        },
+        "mistral-large": {
+          "e_count": 22
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 156
+        },
+        "claude-sonnet": {
+          "e_count": 52
+        },
+        "llama3.1-8b": {
+          "e_count": 166
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 64
+        },
+        "gpt-5.4": {
+          "e_count": 13
+        },
+        "gemma2-9b": {
+          "e_count": 208
+        },
+        "llama3.1-70b": {
+          "e_count": 171
+        },
+        "mistral-7b": {
+          "e_count": 191
+        }
+      }
+    },
+    {
+      "id": "p0153",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 103
+        },
+        "mistral-large": {
+          "e_count": 27
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 163
+        },
+        "claude-sonnet": {
+          "e_count": 11
+        },
+        "llama3.1-8b": {
+          "e_count": 167
+        },
+        "gemini-2.5-pro": {
+          "e_count": 4
+        },
+        "claude-opus": {
+          "e_count": 6
+        },
+        "claude-haiku": {
+          "e_count": 118
+        },
+        "gpt-5.4": {
+          "e_count": 7
+        },
+        "gemma2-9b": {
+          "e_count": 96
+        },
+        "llama3.1-70b": {
+          "e_count": 172
+        },
+        "mistral-7b": {
+          "e_count": 199
+        }
+      }
+    },
+    {
+      "id": "p0154",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 167
+        },
+        "mistral-large": {
+          "e_count": 54
+        },
+        "amazon-nova-pro": {
+          "e_count": 2
+        },
+        "qwen2.5-7b": {
+          "e_count": 5
+        },
+        "claude-sonnet": {
+          "e_count": 16
+        },
+        "llama3.1-8b": {
+          "e_count": 171
+        },
+        "gemini-2.5-pro": {
+          "e_count": 2
+        },
+        "claude-opus": {
+          "e_count": 3
+        },
+        "claude-haiku": {
+          "e_count": 89
+        },
+        "gpt-5.4": {
+          "e_count": 27
+        },
+        "gemma2-9b": {
+          "e_count": 163
+        },
+        "llama3.1-70b": {
+          "e_count": 108
+        },
+        "mistral-7b": {
+          "e_count": 156
+        }
+      }
+    },
+    {
+      "id": "p0155",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 21
+        },
+        "mistral-large": {
+          "e_count": 19
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 68
+        },
+        "claude-sonnet": {
+          "e_count": 17
+        },
+        "llama3.1-8b": {
+          "e_count": 155
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 2
+        },
+        "claude-haiku": {
+          "e_count": 119
+        },
+        "gpt-5.4": {
+          "e_count": 18
+        },
+        "gemma2-9b": {
+          "e_count": 151
+        },
+        "llama3.1-70b": {
+          "e_count": 131
+        },
+        "mistral-7b": {
+          "e_count": 73
+        }
+      }
+    },
+    {
+      "id": "p0156",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 25
+        },
+        "mistral-large": {
+          "e_count": 4
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 31
+        },
+        "claude-sonnet": {
+          "e_count": 4
+        },
+        "llama3.1-8b": {
+          "e_count": 29
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 12
+        },
+        "gpt-5.4": {
+          "e_count": 3
+        },
+        "gemma2-9b": {
+          "e_count": 19
+        },
+        "llama3.1-70b": {
+          "e_count": 19
+        },
+        "mistral-7b": {
+          "e_count": 20
+        }
+      }
+    },
+    {
+      "id": "p0157",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 37
+        },
+        "mistral-large": {
+          "e_count": 25
+        },
+        "amazon-nova-pro": {
+          "e_count": 1
+        },
+        "qwen2.5-7b": {
+          "e_count": 152
+        },
+        "claude-sonnet": {
+          "e_count": 2
+        },
+        "llama3.1-8b": {
+          "e_count": 152
+        },
+        "gemini-2.5-pro": {
+          "e_count": 1
+        },
+        "claude-opus": {
+          "e_count": 4
+        },
+        "claude-haiku": {
+          "e_count": 55
+        },
+        "gpt-5.4": {
+          "e_count": 14
+        },
+        "gemma2-9b": {
+          "e_count": 169
+        },
+        "llama3.1-70b": {
+          "e_count": 15
+        },
+        "mistral-7b": {
+          "e_count": 125
+        }
+      }
+    },
+    {
+      "id": "p0158",
+      "scores": {
+        "phi3-14b": {
+          "e_count": 0
+        },
+        "mistral-large": {
+          "e_count": 5
+        },
+        "amazon-nova-pro": {
+          "e_count": 0
+        },
+        "qwen2.5-7b": {
+          "e_count": 0
+        },
+        "claude-sonnet": {
+          "e_count": 0
+        },
+        "llama3.1-8b": {
+          "e_count": 9
+        },
+        "gemini-2.5-pro": {
+          "e_count": 0
+        },
+        "claude-opus": {
+          "e_count": 1
+        },
+        "claude-haiku": {
+          "e_count": 7
+        },
+        "gpt-5.4": {
+          "e_count": 0
+        },
+        "gemma2-9b": {
+          "e_count": 0
+        },
+        "llama3.1-70b": {
+          "e_count": 0
+        },
+        "mistral-7b": {
+          "e_count": 30
+        }
+      }
+    }
+  ]
+}

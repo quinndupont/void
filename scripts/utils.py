@@ -14,6 +14,22 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
+def _load_env_file(path: Path | None = None) -> None:
+    env_path = path or (PROJECT_ROOT / ".env")
+    if not env_path.is_file():
+        return
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        if not key:
+            continue
+        value = value.strip().strip("'").strip('"')
+        os.environ.setdefault(key, value)
+
+
 def load_config(path: Path | None = None) -> dict[str, Any]:
     import yaml
 
@@ -267,8 +283,10 @@ def translate(
     ollama_base_url: str = "http://localhost:11434",
     bedrock_region: str = "us-east-1",
     ollama_timeout_s: float = 120,
+    gemini_timeout_s: float = 120,
     model_name: str | None = None,
 ) -> str:
+    _load_env_file()
     if provider == "ollama":
         return translate_ollama(
             ollama_base_url,
@@ -281,10 +299,55 @@ def translate(
     if provider == "bedrock":
         return translate_bedrock(bedrock_region, model_id, prompt, temperature)
     if provider == "openai":
-        raise ValueError(
-            "OpenAI provider not wired in this scaffold; add openai package and API key or extend translate()."
-        )
+        return translate_openai(model_id, prompt, temperature)
+    if provider == "gemini":
+        return translate_gemini(model_id, prompt, temperature, timeout_s=gemini_timeout_s)
     raise ValueError(f"Unknown provider: {provider}")
+
+
+def translate_openai(model_id: str, prompt: str, temperature: float = 0.3) -> str:
+    from openai import OpenAI
+
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("Missing OPENAI_API_KEY in environment or .env")
+    client = OpenAI(api_key=api_key)
+    resp = client.responses.create(
+        model=model_id,
+        input=prompt,
+        temperature=temperature,
+    )
+    text = (getattr(resp, "output_text", None) or "").strip()
+    if text:
+        return text
+    parts: list[str] = []
+    for item in getattr(resp, "output", []) or []:
+        for content in getattr(item, "content", []) or []:
+            t = getattr(content, "text", None)
+            if t:
+                parts.append(t)
+    return "".join(parts).strip()
+
+
+def translate_gemini(
+    model_id: str, prompt: str, temperature: float = 0.3, *, timeout_s: float = 120
+) -> str:
+    from google import genai
+    from google.genai import types
+
+    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        raise RuntimeError("Missing GEMINI_API_KEY or GOOGLE_API_KEY in environment or .env")
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(timeout=int(timeout_s * 1000)),
+    )
+    resp = client.models.generate_content(
+        model=model_id,
+        contents=prompt,
+        config=types.GenerateContentConfig(temperature=temperature),
+    )
+    return (resp.text or "").strip()
 
 
 def ollama_model_available(base_url: str, model_id: str, model_name: str | None = None) -> tuple[bool, list[str]]:

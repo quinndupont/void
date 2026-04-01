@@ -1,61 +1,94 @@
-# void — La Disparition AI Translation Benchmark
+# void: Lipogram Translation Benchmark
 
-Benchmark: translate Georges Perec’s *La Disparition* (lipogram: no letter “e”) into English under the same constraint. Hard metric: count of `e`/`E` in model output.
+`void` evaluates whether contemporary language models can produce English translations of Georges Perec's *La Disparition* while obeying a strict lipogram constraint: **no letter `e` or `E` may appear in output text**.
 
-**Source:** [archive.org/details/B-001-004-120](https://archive.org/details/B-001-004-120)
+The project includes a reproducible scoring pipeline and a public browser interface for paragraph-level comparison across models.
 
-## Prerequisites
+- Repository: [github.com/quinndupont/void](https://github.com/quinndupont/void)
+- Live benchmark viewer (GitHub Pages): [quinndupont.github.io/void](https://quinndupont.github.io/void/)
+- Source text: [archive.org/details/B-001-004-120](https://archive.org/details/B-001-004-120)
 
-- Python 3.10+
-- [Ollama](https://ollama.com/) (for local models)
-- [AWS CLI](https://aws.amazon.com/cli/) v2 with Bedrock access (`aws bedrock list-foundation-models` works in your region)
-- Optional: Tesseract + `fra` language data if the PDF is image-only
+## Benchmark Method
 
-## Setup
+- **Task:** Translate French paragraphs into English under a hard lipogram constraint.
+- **Primary metric:** `total_e_count` (lower is better).
+- **Secondary metric:** `pass_rate` = proportion of paragraphs with zero `e` characters.
+- **Unit of analysis:** paragraph-level outputs in `data/translations/*.json`.
+
+## Current Results (from `data/scores.json`)
+
+Ranking is ordered by the primary metric (`total_e_count`, ascending).
+
+| Rank | Model | Total `e` count | Pass rate | E-free paragraphs | Total paragraphs |
+|---:|---|---:|---:|---:|---:|
+| 1 | amazon-nova-pro | 498 | 13.92% | 22 | 158 |
+| 2 | gemini-2.5-pro | 713 | 8.92% | 14 | 157 |
+| 3 | claude-opus | 902 | 3.16% | 5 | 158 |
+| 4 | gpt-5.4 | 2785 | 0.64% | 1 | 157 |
+| 5 | claude-sonnet | 4360 | 1.90% | 3 | 158 |
+| 6 | mistral-large | 9541 | 0.00% | 0 | 158 |
+| 7 | qwen2.5-7b | 14316 | 18.35% | 29 | 158 |
+| 8 | claude-haiku | 16119 | 7.59% | 12 | 158 |
+| 9 | llama3.1-8b | 19938 | 0.63% | 1 | 158 |
+| 10 | phi3-14b | 22785 | 4.43% | 7 | 158 |
+| 11 | llama3.1-70b | 24155 | 1.27% | 2 | 158 |
+| 12 | gemma2-9b | 24735 | 4.49% | 7 | 156 |
+| 13 | mistral-7b | 27254 | 1.90% | 3 | 158 |
+
+## Reproducible Setup
+
+### 1) Environment
 
 ```bash
-cd /Users/quinn/dev/void   # this project root
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+cp .env.example .env
 ```
 
-Configure AWS (Bedrock invocations use the **AWS CLI**, not boto3):
+Set credentials in `.env` as needed:
+
+- `OPENAI_API_KEY`
+- `GEMINI_API_KEY` (or `GOOGLE_API_KEY`)
+
+For Bedrock-backed models, configure AWS CLI credentials:
 
 ```bash
 aws configure
-# Ensure your IAM user/role can bedrock:InvokeModel on the model ARNs you use
 ```
 
-Verify Bedrock models in `config.yaml` match your region:
+### 2) Run Pipeline
 
 ```bash
-aws bedrock list-foundation-models --region us-east-1 --query 'modelSummaries[?contains(modelId, `claude`)].modelId' --output text
+python scripts/01_fetch_pdf.py
+python scripts/02_extract_text.py
+python scripts/03_cleanup.py
+python scripts/03b_tag_main_boundaries.py
+python scripts/04_translate.py
+python scripts/05_score.py
+python scripts/06_detect_language.py
 ```
 
-## Pipeline
-
-1. `python scripts/01_fetch_pdf.py` — download PDF to `data/raw/la_disparition.pdf`
-2. `python scripts/02_extract_text.py` — PDF → `data/pages/page_NNN.txt`
-3. `python scripts/03_cleanup.py` — `data/french_clean.json` (+ `e_errors_review.json` if needed)
-4. `python scripts/03b_tag_main_boundaries.py` — tag `pre_text` + `main_start`/`main_end` in `data/french_clean.json`
-5. `python scripts/04_translate.py` — per-model JSON under `data/translations/` (checkpointed)
-6. `python scripts/05_score.py` — `data/scores.json` and `site/data.json`
-7. Open `site/index.html` (or serve `site/` statically)
-
-`04_translate.py` now defaults to `translate.scope: main_only` and excludes pre-text boundaries (`p0001`, `p0156`, `p0157`) unless tags in `data/french_clean.json` explicitly set `main_start`/`main_end`. To translate everything, set `translate.scope: all` in `config.yaml`.
-For a quick smoke test run, use `python scripts/04_translate.py --test` (or `--test --test-limit 1`) to translate only a small number of pending paragraphs per model.
-
-Start small: trim to a few pages/models before a full run (see plan notes in the repo history or project brief).
-
-## Copyright / ethics
-
-French text is Perec’s *La Disparition* (Denoël, 1969). This repo is for research and criticism. A public deployment may warrant excerpting chapters and a clear rights notice. Gilbert Adair’s *A Void* is the canonical human lipogram translation but is **not** included here (copyright).
-
-## Git
+For a smoke test:
 
 ```bash
-git init
-git add .
-git commit -m "Initial void benchmark scaffold"
+python scripts/04_translate.py --test --test-limit 1
 ```
+
+## GitHub Pages Deployment
+
+This repository includes `.github/workflows/deploy-pages.yml`, which deploys the `site/` directory to GitHub Pages on every push to `main`.
+
+To enable Pages:
+
+1. Open repository **Settings → Pages**
+2. Ensure **Build and deployment** is set to **GitHub Actions**
+3. Push to `main` and wait for the workflow to complete
+
+Your site will publish at:
+
+- [https://quinndupont.github.io/void/](https://quinndupont.github.io/void/)
+
+## Research and Rights Notice
+
+This benchmark is intended for research, criticism, and model evaluation. *La Disparition* is a copyrighted literary work; use source excerpts and outputs responsibly, and include appropriate rights notices in downstream publications.

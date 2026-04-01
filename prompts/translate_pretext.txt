@@ -1,0 +1,17 @@
+Produce an English literary translation of the French source text.
+
+Prioritize:
+1. Meaning: Preserve the source sense as closely as possible.
+2. Literary quality: Keep fluent, rhythmic prose.
+3. Faithfulness to tone, register, and key details.
+
+STRICT OUTPUT RULES:
+- Output ONLY the translated paragraph text.
+- Do NOT output any title, intro, outro, explanation, apology, analysis, or metadata.
+- Do NOT include tags (for example: <think>...</think>), markdown, quotes, or code fences.
+- Do NOT repeat the prompt or include the original French.
+- Return plain text only.
+
+---
+
+{french_text}

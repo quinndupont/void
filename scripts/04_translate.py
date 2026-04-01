@@ -190,6 +190,7 @@ def translate_one(
             ollama_base_url=cfg.get("ollama", {}).get("base_url", "http://localhost:11434"),
             bedrock_region=cfg.get("bedrock", {}).get("region", "us-east-1"),
             ollama_timeout_s=float(cfg.get("translate", {}).get("ollama_timeout_s", 120)),
+            gemini_timeout_s=float(cfg.get("translate", {}).get("gemini_timeout_s", 120)),
         )
 
     max_r = int(cfg.get("translate", {}).get("max_retries", 3))
@@ -267,6 +268,9 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
         if test_enabled and "test_attempts" not in doc:
             doc["test_attempts"] = []
         done_ids = {p["id"] for p in doc["paragraphs"]}
+        # If page-1 split entries exist, treat raw p0001 as already handled.
+        if "p0001_pre" in done_ids or "p0001_main" in done_ids:
+            done_ids.add("p0001")
 
     pending = [p for p in selected if p["id"] not in done_ids]
     if not pending:
@@ -296,6 +300,12 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
             "read timed out" in msg
             or "readtimeout" in msg
             or "timed out" in msg
+        )
+
+    def is_gemini_deadline(err: Exception) -> bool:
+        msg = str(err).lower()
+        return provider == "gemini" and (
+            "deadline_exceeded" in msg or "deadline expired" in msg or "timed out" in msg
         )
 
     if test_enabled:
@@ -355,6 +365,10 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
                         print(f"[{name}] TIMEOUT {p['id']}; skipping paragraph and continuing")
                         record_test_attempt(p["id"], "timeout", str(e))
                         continue
+                    if is_gemini_deadline(e):
+                        print(f"[{name}] DEADLINE {p['id']}; skipping paragraph and continuing")
+                        record_test_attempt(p["id"], "deadline", str(e))
+                        continue
                     if is_unavailable_bedrock_model(e):
                         print(f"[{name}] SKIP unavailable Bedrock model configuration: {e}")
                         record_test_attempt(p["id"], "skip_unavailable_model", str(e))
@@ -384,6 +398,10 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
                 if is_ollama_timeout(e):
                     print(f"[{name}] TIMEOUT {p['id']}; skipping paragraph and continuing")
                     record_test_attempt(p["id"], "timeout", str(e))
+                    continue
+                if is_gemini_deadline(e):
+                    print(f"[{name}] DEADLINE {p['id']}; skipping paragraph and continuing")
+                    record_test_attempt(p["id"], "deadline", str(e))
                     continue
                 if is_unavailable_bedrock_model(e):
                     print(f"[{name}] SKIP unavailable Bedrock model configuration: {e}")
@@ -443,7 +461,12 @@ def main() -> None:
         print("No models in config.yaml")
         sys.exit(1)
     for m in models:
-        run_model(cfg, m, paragraphs, tpl)
+        name = m.get("name", "unknown-model")
+        try:
+            run_model(cfg, m, paragraphs, tpl)
+        except Exception as e:  # noqa: BLE001
+            # Keep batch runs resilient: continue with remaining configured models.
+            print(f"[{name}] FATAL model run failed; continuing to next model: {e}")
     print("Done.")
 
 

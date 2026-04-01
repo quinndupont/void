@@ -15,6 +15,7 @@ FRENCH = PROJECT_ROOT / "data" / "french_clean.json"
 TRANS_DIR = PROJECT_ROOT / "data" / "translations"
 SCORES_OUT = PROJECT_ROOT / "data" / "scores.json"
 SITE_DATA = PROJECT_ROOT / "site" / "data.json"
+LANG_SUMMARY = PROJECT_ROOT / "data" / "language_eval" / "summary.json"
 
 
 def load_french_map() -> dict:
@@ -66,11 +67,11 @@ def build_site_json(
         for row in doc["paragraphs"]:
             pid = row["id"]
             if pid not in by_para:
-                fp = french_by_id[pid]
+                fp = french_by_id.get(pid)
                 by_para[pid] = {
                     "id": pid,
-                    "chapter": fp.get("chapter", 1),
-                    "french": fp["text"],
+                    "chapter": (fp or {}).get("chapter", 1),
+                    "french": (fp or {}).get("text", row.get("french", "")),
                     "translations": {},
                 }
             by_para[pid]["translations"][mid] = {
@@ -79,13 +80,24 @@ def build_site_json(
             }
     pass_rates = {s["name"]: s.get("pass_rate", 0) for s in scores_models}
     best = max(models, key=lambda m: pass_rates.get(m, 0)) if models else None
-    model_stats = {
-        s["name"]: {
+    lang_by_model: dict[str, dict] = {}
+    if LANG_SUMMARY.is_file():
+        lang_doc = json.loads(LANG_SUMMARY.read_text(encoding="utf-8"))
+        for row in lang_doc.get("models", []):
+            if isinstance(row, dict) and row.get("model"):
+                lang_by_model[str(row["model"])] = row
+
+    model_stats = {}
+    for s in scores_models:
+        name = s["name"]
+        lang = lang_by_model.get(name, {})
+        model_stats[name] = {
             "pass_rate": s.get("pass_rate", 0),
             "total_e_count": s.get("total_e_count", 0),
+            "non_english": lang.get("non_english"),
+            "french": lang.get("french"),
+            "non_english_rate": lang.get("non_english_rate"),
         }
-        for s in scores_models
-    }
     return {
         "metadata": meta,
         "models": models,
@@ -113,9 +125,10 @@ def main() -> None:
     para_ids = sorted(french_by_id.keys())
     for model_name, doc in sorted(translations.items()):
         rows = doc["paragraphs"]
-        total_e = sum(r.get("e_count", 0) for r in rows)
-        e_free = sum(1 for r in rows if r.get("e_count", 0) == 0)
-        n = len(rows)
+        scored_rows = [r for r in rows if not r.get("exclude_from_score", False)]
+        total_e = sum(r.get("e_count", 0) for r in scored_rows)
+        e_free = sum(1 for r in scored_rows if r.get("e_count", 0) == 0)
+        n = len(scored_rows)
         pass_rate = (e_free / n) if n else 0.0
         scores_models.append(
             {
@@ -124,7 +137,7 @@ def main() -> None:
                 "e_free_paragraphs": e_free,
                 "pass_rate": round(pass_rate, 4),
                 "total_e_count": total_e,
-                "first_failure_paragraph": first_failure(rows),
+                "first_failure_paragraph": first_failure(scored_rows),
             }
         )
     # Rank by highest pass_rate first, then lowest total_e_count, then name.

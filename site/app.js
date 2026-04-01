@@ -49,10 +49,29 @@
     const totalParas =
       (data.metadata && Number(data.metadata.total_paragraphs)) ||
       (Array.isArray(data.paragraphs) ? data.paragraphs.length : 0);
-    for (const name of allModels()) {
+    const ordered = allModels().slice().sort((a, b) => {
+      if (a === FRENCH_MODEL) return -1;
+      if (b === FRENCH_MODEL) return 1;
+      const sa = stats[a] || {};
+      const sb = stats[b] || {};
+      const tea = Number.isFinite(sa.total_e_count) ? Number(sa.total_e_count) : 999999999;
+      const teb = Number.isFinite(sb.total_e_count) ? Number(sb.total_e_count) : 999999999;
+      if (tea !== teb) return tea - teb;
+      const fra = Number(sa.french ?? 999999);
+      const frb = Number(sb.french ?? 999999);
+      if (fra !== frb) return fra - frb;
+      const pra = Number(sa.pass_rate || 0);
+      const prb = Number(sb.pass_rate || 0);
+      if (prb !== pra) return prb - pra;
+      return a.localeCompare(b);
+    });
+
+    for (const [idx, name] of ordered.entries()) {
       const color = name === FRENCH_MODEL ? "#444" : data.model_colors[name] || "#888";
       const st = stats[name] || {};
       const pr = st.pass_rate != null ? Math.round(st.pass_rate * 1000) / 10 : null;
+      const frenchCount = Number.isFinite(st.french) ? st.french : null;
+      const totalE = Number.isFinite(st.total_e_count) ? st.total_e_count : null;
       const processed =
         name === FRENCH_MODEL
           ? totalParas
@@ -62,19 +81,54 @@
                 0
               )
             : 0;
+      const qualityTooltip =
+        "French count estimates likely untranslated pages copied from source. " +
+        "Higher values can artificially improve no-e scores.";
+      const escapedTooltip = escapeHtml(qualityTooltip);
+      const frenchRate = frenchCount != null && processed > 0 ? frenchCount / processed : null;
+      const riskLabel =
+        name === FRENCH_MODEL
+          ? "Georges Perec"
+          : frenchRate == null
+            ? "unknown"
+            : frenchCount === 0
+              ? "clean"
+              : frenchRate >= 0.15
+                ? "high copy risk"
+                : "some copy risk";
       const btn = document.createElement("button");
       btn.type = "button";
       btn.dataset.model = name;
+      btn.classList.add("legend-card");
       if (name === globalModel) btn.classList.add("active");
-      btn.innerHTML = `<span class="legend-dot" style="background:${color}"></span><span>${escapeHtml(
-        name === FRENCH_MODEL ? "french" : name
-      )}</span><span class="legend-meta">· ${processed}/${totalParas} pages</span>${
-        name === FRENCH_MODEL
-          ? `<span class="legend-meta"> · 100% e-free</span>`
-          : pr != null
-            ? `<span class="legend-meta"> · ${pr}% e-free</span>`
+      const displayName = name === FRENCH_MODEL ? "french original" : name;
+      btn.innerHTML = `
+        <span class="legend-card-top">
+          <span class="legend-dot" style="background:${color}"></span>
+          <span class="legend-name">${escapeHtml(displayName)}</span>
+          <span class="legend-rank">${name === FRENCH_MODEL ? "source" : `#${idx}`}</span>
+        </span>
+        ${
+          name === FRENCH_MODEL
+            ? `<span class="legend-chip neutral" aria-hidden="true" style="visibility:hidden;">placeholder</span>`
+            : `<span class="legend-chip ${
+                riskLabel === "clean" ? "good" : riskLabel === "unknown" ? "neutral" : "warn"
+              }">${escapeHtml(riskLabel)}</span>`
+        }
+        <span class="legend-row"><span class="legend-k">e-free</span><span class="legend-v">${
+          name === FRENCH_MODEL ? "100%" : pr != null ? `${pr}%` : "n/a"
+        }</span></span>
+        <span class="legend-row"><span class="legend-k">French</span><span class="legend-v">${
+          name === FRENCH_MODEL ? "n/a" : frenchCount != null ? frenchCount : "n/a"
+        }${
+          name !== FRENCH_MODEL && frenchCount != null
+            ? ` <span class="legend-tip" tabindex="0" role="note" aria-label="${escapedTooltip}" data-tooltip="${escapedTooltip}">ⓘ</span>`
             : ""
-      }`;
+        }</span></span>
+        <span class="legend-row"><span class="legend-k">total e</span><span class="legend-v">${
+          name === FRENCH_MODEL ? "0" : totalE != null ? totalE : "n/a"
+        }</span></span>
+      `;
       btn.addEventListener("click", () => {
         globalModel = name;
         Object.keys(perParagraph).forEach((k) => delete perParagraph[k]);
@@ -154,12 +208,29 @@
         '<p class="empty-state">No paragraphs in data.json. Run the pipeline and scripts/05_score.py.</p>';
       return;
     }
+    const orderedParagraphs = [...data.paragraphs].sort((a, b) => {
+      if (a.id === "p0001_pre" && b.id === "p0001_main") return -1;
+      if (a.id === "p0001_main" && b.id === "p0001_pre") return 1;
+      return a.id.localeCompare(b.id);
+    });
     let lastChapter = null;
-    for (const p of data.paragraphs) {
+    for (const p of orderedParagraphs) {
+      if (p.id === "p0001_pre") {
+        const div = document.createElement("div");
+        div.className = "chapter-break";
+        div.textContent = "";
+        reader.appendChild(div);
+      } else if (p.id === "p0001_main") {
+        const div = document.createElement("div");
+        div.className = "chapter-break";
+        div.textContent = "";
+        reader.appendChild(div);
+      }
+
       if (lastChapter !== null && p.chapter !== lastChapter) {
         const div = document.createElement("div");
         div.className = "chapter-break";
-        div.textContent = `· ${p.chapter} ·`;
+        div.textContent = "";
         reader.appendChild(div);
       }
       lastChapter = p.chapter;

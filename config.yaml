@@ -25,6 +25,11 @@ models:
     model_id: "phi3:mini"
     temperature: 0.3
 
+  - name: "gemini-2.5-pro"
+    provider: "gemini"
+    model_id: "models/gemini-2.5-pro"
+    temperature: 0.3
+
   - name: "claude-sonnet"
     provider: "bedrock"
     model_id: "us.anthropic.claude-sonnet-4-6"
@@ -55,6 +60,31 @@ models:
     model_id: "us.amazon.nova-pro-v1:0"
     temperature: 0.3
 
+  - name: "gpt-5.4"
+    provider: "openai"
+    model_id: "gpt-5.4"
+    temperature: 0.3
+
+  # - name: "devstral-small-2"
+  #   provider: "ollama"
+  #   model_id: "devstral-small-2:latest"
+  #   temperature: 0.3
+
+  # - name: "deepseek-coder-6.7b"
+  #   provider: "ollama"
+  #   model_id: "deepseek-coder:6.7b"
+  #   temperature: 0.3
+
+  # - name: "llama3.2-3b"
+  #   provider: "ollama"
+  #   model_id: "llama3.2:3b"
+  #   temperature: 0.3
+
+  # - name: "qwen3.5-9b-claude-opus"
+  #   provider: "ollama"
+  #   model_id: "qwen3.5-9b-claude-opus:9b-q4"
+  #   temperature: 0.3
+
 ollama:
   base_url: "http://localhost:11434"
 
@@ -66,3 +96,4 @@ translate:
   bedrock_concurrency: 2
   max_retries: 3
   ollama_timeout_s: 120
+  gemini_timeout_s: 120

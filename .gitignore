@@ -4,21 +4,30 @@ __pycache__/
 .venv/
 venv/
 .env
+.env.*
+!.env.example
 *.egg-info/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Data artifacts (large / copyrighted)
+# Data artifacts (large / copyrighted / generated)
 data/raw/*.pdf
 data/pages/*.txt
 data/french_clean.json
 data/e_errors_review.json
 data/translations/*.json
-data/scores.json
+data/language_eval/*.lang.json
 
 # Keep directory structure
 !data/raw/.gitkeep
 !data/pages/.gitkeep
 !data/translations/.gitkeep
+!data/language_eval/.gitkeep
+
+# Local backups and logs
+*.backup-*
+*.log
 
 # OS
 .DS_Store
