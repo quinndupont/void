@@ -98,7 +98,24 @@ def _extract_text_from_bedrock_response(model_id: str, resp: dict[str, Any]) -> 
         outs = resp.get("outputs") or []
         if outs and isinstance(outs[0], dict):
             return (outs[0].get("text") or "").strip()
-        return (resp.get("output_text") or "").strip()
+        txt = (resp.get("output_text") or "").strip()
+        if txt:
+            return txt
+        # Chat-style fallback used by newer Mistral payloads.
+        choices = resp.get("choices") or []
+        if choices and isinstance(choices[0], dict):
+            msg = choices[0].get("message") or {}
+            content = msg.get("content")
+            if isinstance(content, str):
+                return content.strip()
+            if isinstance(content, list):
+                parts = []
+                for c in content:
+                    if isinstance(c, dict) and isinstance(c.get("text"), str):
+                        parts.append(c["text"])
+                if parts:
+                    return "".join(parts).strip()
+        return ""
     if "amazon.nova" in mid:
         out = resp.get("output") or {}
         msg = out.get("message") or {}

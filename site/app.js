@@ -40,7 +40,7 @@
   }
 
   function modelForParagraph(pid) {
-    return perParagraph[pid] || null;
+    return perParagraph[pid] || globalModel || FRENCH_MODEL;
   }
 
   function renderLegend() {
@@ -68,7 +68,7 @@
       if (name === globalModel) btn.classList.add("active");
       btn.innerHTML = `<span class="legend-dot" style="background:${color}"></span><span>${escapeHtml(
         name === FRENCH_MODEL ? "french" : name
-      )}</span><span class="legend-meta">· ${processed}/${totalParas} paras</span>${
+      )}</span><span class="legend-meta">· ${processed}/${totalParas} pages</span>${
         name === FRENCH_MODEL
           ? `<span class="legend-meta"> · 100% e-free</span>`
           : pr != null

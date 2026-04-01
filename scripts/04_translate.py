@@ -3,6 +3,7 @@
 
 import json
 import re
+import subprocess
 import sys
 import threading
 import time
@@ -148,6 +149,23 @@ def save_translation(path: Path, doc: dict) -> None:
     tmp.replace(path)
 
 
+def maybe_refresh_site_data(cfg: dict) -> None:
+    tcfg = cfg.get("translate", {})
+    if tcfg.get("auto_update_site_data", True) is False:
+        return
+    score_script = _SCRIPTS / "05_score.py"
+    # Keep translation resilient: if scoring fails, continue translation.
+    try:
+        subprocess.run(
+            [sys.executable, str(score_script)],
+            check=False,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+    except Exception:  # noqa: BLE001
+        pass
+
+
 def translate_one(
     cfg: dict,
     provider: str,
@@ -177,6 +195,8 @@ def translate_one(
     max_r = int(cfg.get("translate", {}).get("max_retries", 3))
     english = retry_with_backoff(run, max_retries=max_r)
     english = clean_translation_output(english)
+    if not english.strip():
+        raise RuntimeError(f"Empty translation output for {model_name} on {pid}")
     ms = int((time.perf_counter() - t0) * 1000)
     secs = ms / 1000 if ms > 0 else 0.0
     tok_out = estimate_tokens(english)
@@ -347,6 +367,7 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
                     doc["paragraphs"].sort(key=lambda x: x["id"])
                     record_test_attempt(row["id"], "ok")
                     save_translation(path, doc)
+                    maybe_refresh_site_data(cfg)
                 print(
                     f"[{name}] {row['id']} e_count={row['e_count']} "
                     f"tok={row['token_count']} tok/s={row['tok_per_s']} {row['latency_ms']}ms"
@@ -375,6 +396,7 @@ def run_model(cfg: dict, model: dict, paragraphs: list[dict], tpl: str) -> None:
             doc["paragraphs"].sort(key=lambda x: x["id"])
             record_test_attempt(row["id"], "ok")
             save_translation(path, doc)
+            maybe_refresh_site_data(cfg)
             print(
                 f"[{name}] {row['id']} e_count={row['e_count']} "
                 f"tok={row['token_count']} tok/s={row['tok_per_s']} {row['latency_ms']}ms"
