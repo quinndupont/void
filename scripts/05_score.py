@@ -16,6 +16,7 @@ TRANS_DIR = PROJECT_ROOT / "data" / "translations"
 SCORES_OUT = PROJECT_ROOT / "data" / "scores.json"
 SITE_DATA = PROJECT_ROOT / "site" / "data.json"
 LANG_SUMMARY = PROJECT_ROOT / "data" / "language_eval" / "summary.json"
+LANG_EVAL_DIR = PROJECT_ROOT / "data" / "language_eval"
 
 
 def load_french_map() -> dict:
@@ -62,6 +63,16 @@ def build_site_json(
 ) -> dict:
     models = [s["name"] for s in scores_models]
     by_para: dict[str, dict] = {}
+    lang_rows_by_model: dict[str, dict[str, dict]] = {}
+    for path in LANG_EVAL_DIR.glob("*.lang.json"):
+        lang_doc = json.loads(path.read_text(encoding="utf-8"))
+        model_name = str(lang_doc.get("model") or path.stem.replace(".lang", ""))
+        para_map: dict[str, dict] = {}
+        for row in lang_doc.get("paragraphs", []):
+            pid = row.get("id")
+            if pid:
+                para_map[str(pid)] = row
+        lang_rows_by_model[model_name] = para_map
     for mid in models:
         doc = translations[mid]
         for row in doc["paragraphs"]:
@@ -77,6 +88,11 @@ def build_site_json(
             by_para[pid]["translations"][mid] = {
                 "text": row.get("english", ""),
                 "e_count": row.get("e_count", 0),
+                "is_failure": (
+                    lang_rows_by_model.get(mid, {}).get(pid, {}).get("is_english") is False
+                    if pid in lang_rows_by_model.get(mid, {})
+                    else None
+                ),
             }
     pass_rates = {s["name"]: s.get("pass_rate", 0) for s in scores_models}
     best = max(models, key=lambda m: pass_rates.get(m, 0)) if models else None
@@ -94,9 +110,8 @@ def build_site_json(
         model_stats[name] = {
             "pass_rate": s.get("pass_rate", 0),
             "total_e_count": s.get("total_e_count", 0),
-            "non_english": lang.get("non_english"),
-            "french": lang.get("french"),
-            "non_english_rate": lang.get("non_english_rate"),
+            "failures": lang.get("failures"),
+            "failure_rate": lang.get("failure_rate"),
         }
     return {
         "metadata": meta,
@@ -140,8 +155,25 @@ def main() -> None:
                 "first_failure_paragraph": first_failure(scored_rows),
             }
         )
-    # Rank by highest pass_rate first, then lowest total_e_count, then name.
-    scores_models.sort(key=lambda s: (-s["pass_rate"], s["total_e_count"], s["name"]))
+    failures_by_model: dict[str, tuple[float, int]] = {}
+    if LANG_SUMMARY.is_file():
+        lang_doc = json.loads(LANG_SUMMARY.read_text(encoding="utf-8"))
+        for row in lang_doc.get("models", []):
+            if isinstance(row, dict) and row.get("model"):
+                model = str(row["model"])
+                failure_rate = float(row.get("failure_rate", 1.0))
+                failures = int(row.get("failures", 10**9))
+                failures_by_model[model] = (failure_rate, failures)
+    # Rank with severe failure penalty first, then e-metrics and pass-rate.
+    scores_models.sort(
+        key=lambda s: (
+            failures_by_model.get(s["name"], (1.0, 10**9))[0],
+            failures_by_model.get(s["name"], (1.0, 10**9))[1],
+            s["total_e_count"],
+            -s["pass_rate"],
+            s["name"],
+        )
+    )
 
     for pid in para_ids:
         cell = {"id": pid, "scores": {}}

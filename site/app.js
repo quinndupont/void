@@ -15,9 +15,36 @@
   const perParagraph = {};
   let openPopover = null;
   let sheetParaId = null;
+  /** @type {string|null} */
+  let failureViewerModel = null;
 
   const isMobile = () => window.matchMedia("(max-width: 639px)").matches;
   const allModels = () => [FRENCH_MODEL, ...(data?.models || [])];
+
+  function orderedModels() {
+    const stats = data?.model_stats || {};
+    return (data?.models || []).slice().sort((a, b) => {
+      const sa = stats[a] || {};
+      const sb = stats[b] || {};
+      const rfa = Number(sa.failure_rate ?? 1);
+      const rfb = Number(sb.failure_rate ?? 1);
+      if (rfa !== rfb) return rfa - rfb;
+      const cfa = Number(sa.failures ?? 999999);
+      const cfb = Number(sb.failures ?? 999999);
+      if (cfa !== cfb) return cfa - cfb;
+      const tea = Number.isFinite(sa.total_e_count) ? Number(sa.total_e_count) : 999999999;
+      const teb = Number.isFinite(sb.total_e_count) ? Number(sb.total_e_count) : 999999999;
+      if (tea !== teb) return tea - teb;
+      const pra = Number(sa.pass_rate || 0);
+      const prb = Number(sb.pass_rate || 0);
+      if (prb !== pra) return prb - pra;
+      return a.localeCompare(b);
+    });
+  }
+
+  function uiModels() {
+    return [...orderedModels(), FRENCH_MODEL];
+  }
 
   function escapeHtml(s) {
     return s
@@ -43,34 +70,26 @@
     return perParagraph[pid] || globalModel || FRENCH_MODEL;
   }
 
+  function isFailureForModel(paragraph, modelName) {
+    if (!modelName || modelName === FRENCH_MODEL) return false;
+    const tr = paragraph?.translations?.[modelName];
+    return tr?.is_failure === true;
+  }
+
   function renderLegend() {
     legend.innerHTML = "";
     const stats = data.model_stats || {};
     const totalParas =
       (data.metadata && Number(data.metadata.total_paragraphs)) ||
       (Array.isArray(data.paragraphs) ? data.paragraphs.length : 0);
-    const ordered = allModels().slice().sort((a, b) => {
-      if (a === FRENCH_MODEL) return -1;
-      if (b === FRENCH_MODEL) return 1;
-      const sa = stats[a] || {};
-      const sb = stats[b] || {};
-      const tea = Number.isFinite(sa.total_e_count) ? Number(sa.total_e_count) : 999999999;
-      const teb = Number.isFinite(sb.total_e_count) ? Number(sb.total_e_count) : 999999999;
-      if (tea !== teb) return tea - teb;
-      const fra = Number(sa.french ?? 999999);
-      const frb = Number(sb.french ?? 999999);
-      if (fra !== frb) return fra - frb;
-      const pra = Number(sa.pass_rate || 0);
-      const prb = Number(sb.pass_rate || 0);
-      if (prb !== pra) return prb - pra;
-      return a.localeCompare(b);
-    });
+    const ordered = uiModels();
+    const rankByModel = Object.fromEntries(orderedModels().map((name, idx) => [name, idx + 1]));
 
     for (const [idx, name] of ordered.entries()) {
       const color = name === FRENCH_MODEL ? "#444" : data.model_colors[name] || "#888";
       const st = stats[name] || {};
       const pr = st.pass_rate != null ? Math.round(st.pass_rate * 1000) / 10 : null;
-      const frenchCount = Number.isFinite(st.french) ? st.french : null;
+      const failureCount = Number.isFinite(st.failures) ? st.failures : null;
       const totalE = Number.isFinite(st.total_e_count) ? st.total_e_count : null;
       const processed =
         name === FRENCH_MODEL
@@ -82,31 +101,32 @@
               )
             : 0;
       const qualityTooltip =
-        "French count estimates likely untranslated pages copied from source. " +
-        "Higher values can artificially improve no-e scores.";
+        "Failures count outputs that were not detected as English " +
+        "(including French). Higher values indicate lower constraint-compliant translation reliability.";
       const escapedTooltip = escapeHtml(qualityTooltip);
-      const frenchRate = frenchCount != null && processed > 0 ? frenchCount / processed : null;
+      const failureRate = failureCount != null && processed > 0 ? failureCount / processed : null;
       const riskLabel =
         name === FRENCH_MODEL
           ? "Georges Perec"
-          : frenchRate == null
+          : failureRate == null
             ? "unknown"
-            : frenchCount === 0
+            : failureCount === 0
               ? "clean"
-              : frenchRate >= 0.15
-                ? "high copy risk"
-                : "some copy risk";
+              : failureRate >= 0.15
+                ? "high failure rate"
+                : "some failures";
       const btn = document.createElement("button");
       btn.type = "button";
       btn.dataset.model = name;
       btn.classList.add("legend-card");
       if (name === globalModel) btn.classList.add("active");
+      if (name !== FRENCH_MODEL && failureViewerModel === name) btn.classList.add("failure-mode");
       const displayName = name === FRENCH_MODEL ? "french original" : name;
       btn.innerHTML = `
         <span class="legend-card-top">
           <span class="legend-dot" style="background:${color}"></span>
           <span class="legend-name">${escapeHtml(displayName)}</span>
-          <span class="legend-rank">${name === FRENCH_MODEL ? "source" : `#${idx}`}</span>
+          <span class="legend-rank">${name === FRENCH_MODEL ? "source" : `#${rankByModel[name]}`}</span>
         </span>
         ${
           name === FRENCH_MODEL
@@ -118,10 +138,10 @@
         <span class="legend-row"><span class="legend-k">e-free</span><span class="legend-v">${
           name === FRENCH_MODEL ? "100%" : pr != null ? `${pr}%` : "n/a"
         }</span></span>
-        <span class="legend-row"><span class="legend-k">French</span><span class="legend-v">${
-          name === FRENCH_MODEL ? "n/a" : frenchCount != null ? frenchCount : "n/a"
+        <span class="legend-row"><span class="legend-k">Failures</span><span class="legend-v legend-failures-v">${
+          name === FRENCH_MODEL ? "n/a" : failureCount != null ? failureCount : "n/a"
         }${
-          name !== FRENCH_MODEL && frenchCount != null
+          name !== FRENCH_MODEL && failureCount != null
             ? ` <span class="legend-tip" tabindex="0" role="note" aria-label="${escapedTooltip}" data-tooltip="${escapedTooltip}">ⓘ</span>`
             : ""
         }</span></span>
@@ -131,10 +151,24 @@
       `;
       btn.addEventListener("click", () => {
         globalModel = name;
+        failureViewerModel = null;
         Object.keys(perParagraph).forEach((k) => delete perParagraph[k]);
         renderLegend();
         renderReader();
       });
+      if (name !== FRENCH_MODEL) {
+        const failuresValue = btn.querySelector(".legend-failures-v");
+        if (failuresValue) {
+          failuresValue.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+            globalModel = name;
+            Object.keys(perParagraph).forEach((k) => delete perParagraph[k]);
+            failureViewerModel = failureViewerModel === name ? null : name;
+            renderLegend();
+            renderReader();
+          });
+        }
+      }
       legend.appendChild(btn);
     }
   }
@@ -152,7 +186,7 @@
     sheetList.innerHTML = "";
     const fr = data.paragraphs.find((p) => p.id === pid);
     if (!fr) return;
-    for (const name of allModels()) {
+    for (const name of orderedModels()) {
       if (name === FRENCH_MODEL) continue;
       const tr = fr.translations[name];
       if (!tr) continue;
@@ -179,7 +213,7 @@
     if (!fr) return;
     const ul = document.createElement("ul");
     ul.className = "popover";
-    for (const name of allModels()) {
+    for (const name of orderedModels()) {
       if (name === FRENCH_MODEL) continue;
       const tr = fr.translations[name];
       if (!tr) continue;
@@ -241,11 +275,13 @@
       const article = document.createElement("article");
       article.className = "para";
       const mname = modelForParagraph(p.id);
-      article.style.setProperty("--band-count", String(allModels().length || 1));
+      const inFailureMode = failureViewerModel && failureViewerModel !== FRENCH_MODEL;
+      const isFailurePara = inFailureMode ? isFailureForModel(p, failureViewerModel) : false;
+      article.style.setProperty("--band-count", String(uiModels().length || 1));
 
       const bands = document.createElement("div");
       bands.className = "para-bands";
-      for (const name of allModels()) {
+      for (const name of uiModels()) {
         const band = document.createElement("button");
         band.type = "button";
         band.className = "para-band-btn";
@@ -282,8 +318,13 @@
         body.textContent = p.french;
       }
 
-      article.appendChild(bands);
+      if (!inFailureMode || isFailurePara) {
+        article.appendChild(bands);
+      }
       article.appendChild(body);
+      if (isFailurePara) {
+        article.classList.add("failure-highlight");
+      }
       wrap.appendChild(article);
       reader.appendChild(wrap);
     }

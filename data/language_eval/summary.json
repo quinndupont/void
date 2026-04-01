@@ -8,105 +8,105 @@
       "model": "qwen2.5-7b",
       "file": "data/translations/qwen2.5-7b.json",
       "paragraphs": 159,
-      "non_english": 64,
-      "french": 63,
-      "non_english_rate": 0.4025
+      "failures": 64,
+      "skipped_short": 0,
+      "failure_rate": 0.4025
     },
     {
       "model": "llama3.1-8b",
       "file": "data/translations/llama3.1-8b.json",
       "paragraphs": 159,
-      "non_english": 47,
-      "french": 47,
-      "non_english_rate": 0.2956
+      "failures": 47,
+      "skipped_short": 0,
+      "failure_rate": 0.2956
     },
     {
       "model": "gemma2-9b",
       "file": "data/translations/gemma2-9b.json",
       "paragraphs": 157,
-      "non_english": 15,
-      "french": 15,
-      "non_english_rate": 0.0955
+      "failures": 15,
+      "skipped_short": 1,
+      "failure_rate": 0.0955
     },
     {
       "model": "claude-haiku",
       "file": "data/translations/claude-haiku.json",
       "paragraphs": 159,
-      "non_english": 12,
-      "french": 12,
-      "non_english_rate": 0.0755
+      "failures": 12,
+      "skipped_short": 0,
+      "failure_rate": 0.0755
     },
     {
       "model": "mistral-7b",
       "file": "data/translations/mistral-7b.json",
       "paragraphs": 159,
-      "non_english": 12,
-      "french": 11,
-      "non_english_rate": 0.0755
-    },
-    {
-      "model": "phi3-14b",
-      "file": "data/translations/phi3-14b.json",
-      "paragraphs": 159,
-      "non_english": 7,
-      "french": 1,
-      "non_english_rate": 0.044
+      "failures": 12,
+      "skipped_short": 0,
+      "failure_rate": 0.0755
     },
     {
       "model": "amazon-nova-pro",
       "file": "data/translations/amazon-nova-pro.json",
       "paragraphs": 159,
-      "non_english": 6,
-      "french": 3,
-      "non_english_rate": 0.0377
+      "failures": 6,
+      "skipped_short": 0,
+      "failure_rate": 0.0377
     },
     {
       "model": "mistral-large",
       "file": "data/translations/mistral-large.json",
       "paragraphs": 159,
-      "non_english": 3,
-      "french": 2,
-      "non_english_rate": 0.0189
+      "failures": 3,
+      "skipped_short": 0,
+      "failure_rate": 0.0189
     },
     {
       "model": "claude-sonnet",
       "file": "data/translations/claude-sonnet.json",
       "paragraphs": 159,
-      "non_english": 2,
-      "french": 2,
-      "non_english_rate": 0.0126
-    },
-    {
-      "model": "gpt-5.4",
-      "file": "data/translations/gpt-5.4.json",
-      "paragraphs": 157,
-      "non_english": 1,
-      "french": 0,
-      "non_english_rate": 0.0064
-    },
-    {
-      "model": "claude-opus",
-      "file": "data/translations/claude-opus.json",
-      "paragraphs": 159,
-      "non_english": 1,
-      "french": 0,
-      "non_english_rate": 0.0063
+      "failures": 2,
+      "skipped_short": 0,
+      "failure_rate": 0.0126
     },
     {
       "model": "llama3.1-70b",
       "file": "data/translations/llama3.1-70b.json",
       "paragraphs": 159,
-      "non_english": 1,
-      "french": 1,
-      "non_english_rate": 0.0063
+      "failures": 1,
+      "skipped_short": 0,
+      "failure_rate": 0.0063
+    },
+    {
+      "model": "phi3-14b",
+      "file": "data/translations/phi3-14b.json",
+      "paragraphs": 159,
+      "failures": 1,
+      "skipped_short": 7,
+      "failure_rate": 0.0063
+    },
+    {
+      "model": "claude-opus",
+      "file": "data/translations/claude-opus.json",
+      "paragraphs": 159,
+      "failures": 0,
+      "skipped_short": 1,
+      "failure_rate": 0.0
     },
     {
       "model": "gemini-2.5-pro",
       "file": "data/translations/gemini-2.5-pro.json",
-      "paragraphs": 105,
-      "non_english": 0,
-      "french": 0,
-      "non_english_rate": 0.0
+      "paragraphs": 159,
+      "failures": 0,
+      "skipped_short": 1,
+      "failure_rate": 0.0
+    },
+    {
+      "model": "gpt-5.4",
+      "file": "data/translations/gpt-5.4.json",
+      "paragraphs": 159,
+      "failures": 0,
+      "skipped_short": 1,
+      "failure_rate": 0.0
     }
   ]
 }

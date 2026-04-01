@@ -141,6 +141,11 @@ body {
   box-shadow: 0 0 0 1px var(--accent), 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
+.legend-card.failure-mode {
+  border-color: #8f6b3a;
+  box-shadow: 0 0 0 1px #8f6b3a, 0 8px 18px rgba(143, 107, 58, 0.2);
+}
+
 .legend-card-top {
   display: flex;
   align-items: center;
@@ -181,6 +186,13 @@ body {
 
 .legend-v {
   font-size: 0.82rem;
+}
+
+.legend-failures-v {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
 }
 
 .legend-chip {
@@ -320,6 +332,13 @@ body.show-french .french-line {
 
 .para-text {
   margin: 0;
+}
+
+.failure-highlight .para-text {
+  background: rgba(184, 92, 58, 0.08);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(184, 92, 58, 0.16);
+  padding: 0.12rem 0.3rem;
 }
 
 .chapter-break {

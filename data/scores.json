@@ -1,43 +1,27 @@
 {
   "models": [
     {
-      "name": "qwen2.5-7b",
-      "total_paragraphs": 158,
-      "e_free_paragraphs": 29,
-      "pass_rate": 0.1835,
-      "total_e_count": 14316,
-      "first_failure_paragraph": "p0001_main"
-    },
-    {
-      "name": "amazon-nova-pro",
-      "total_paragraphs": 158,
-      "e_free_paragraphs": 22,
-      "pass_rate": 0.1392,
-      "total_e_count": 498,
-      "first_failure_paragraph": "p0001_main"
-    },
-    {
       "name": "gemini-2.5-pro",
-      "total_paragraphs": 157,
-      "e_free_paragraphs": 14,
-      "pass_rate": 0.0892,
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 15,
+      "pass_rate": 0.0949,
       "total_e_count": 713,
       "first_failure_paragraph": "p0002"
     },
     {
-      "name": "claude-haiku",
+      "name": "claude-opus",
       "total_paragraphs": 158,
-      "e_free_paragraphs": 12,
-      "pass_rate": 0.0759,
-      "total_e_count": 16119,
+      "e_free_paragraphs": 5,
+      "pass_rate": 0.0316,
+      "total_e_count": 902,
       "first_failure_paragraph": "p0001_main"
     },
     {
-      "name": "gemma2-9b",
-      "total_paragraphs": 156,
-      "e_free_paragraphs": 7,
-      "pass_rate": 0.0449,
-      "total_e_count": 24735,
+      "name": "gpt-5.4",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 1,
+      "pass_rate": 0.0063,
+      "total_e_count": 2795,
       "first_failure_paragraph": "p0001_main"
     },
     {
@@ -49,11 +33,11 @@
       "first_failure_paragraph": "p0001_main"
     },
     {
-      "name": "claude-opus",
+      "name": "llama3.1-70b",
       "total_paragraphs": 158,
-      "e_free_paragraphs": 5,
-      "pass_rate": 0.0316,
-      "total_e_count": 902,
+      "e_free_paragraphs": 2,
+      "pass_rate": 0.0127,
+      "total_e_count": 24155,
       "first_failure_paragraph": "p0001_main"
     },
     {
@@ -65,6 +49,30 @@
       "first_failure_paragraph": "p0001_main"
     },
     {
+      "name": "mistral-large",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 0,
+      "pass_rate": 0.0,
+      "total_e_count": 9541,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "amazon-nova-pro",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 22,
+      "pass_rate": 0.1392,
+      "total_e_count": 498,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
+      "name": "claude-haiku",
+      "total_paragraphs": 158,
+      "e_free_paragraphs": 12,
+      "pass_rate": 0.0759,
+      "total_e_count": 16119,
+      "first_failure_paragraph": "p0001_main"
+    },
+    {
       "name": "mistral-7b",
       "total_paragraphs": 158,
       "e_free_paragraphs": 3,
@@ -73,20 +81,12 @@
       "first_failure_paragraph": "p0001_main"
     },
     {
-      "name": "llama3.1-70b",
-      "total_paragraphs": 158,
-      "e_free_paragraphs": 2,
-      "pass_rate": 0.0127,
-      "total_e_count": 24155,
+      "name": "gemma2-9b",
+      "total_paragraphs": 156,
+      "e_free_paragraphs": 7,
+      "pass_rate": 0.0449,
+      "total_e_count": 24735,
       "first_failure_paragraph": "p0001_main"
-    },
-    {
-      "name": "gpt-5.4",
-      "total_paragraphs": 157,
-      "e_free_paragraphs": 1,
-      "pass_rate": 0.0064,
-      "total_e_count": 2785,
-      "first_failure_paragraph": "p0002"
     },
     {
       "name": "llama3.1-8b",
@@ -97,11 +97,11 @@
       "first_failure_paragraph": "p0001_main"
     },
     {
-      "name": "mistral-large",
+      "name": "qwen2.5-7b",
       "total_paragraphs": 158,
-      "e_free_paragraphs": 0,
-      "pass_rate": 0.0,
-      "total_e_count": 9541,
+      "e_free_paragraphs": 29,
+      "pass_rate": 0.1835,
+      "total_e_count": 14316,
       "first_failure_paragraph": "p0001_main"
     }
   ],

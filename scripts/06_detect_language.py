@@ -68,6 +68,14 @@ def judge_language(identifier, text: str) -> tuple[str, float]:
     return language, confidence
 
 
+def is_too_short_for_judgment(text: str) -> bool:
+    snippet = (text or "").strip()
+    if not snippet:
+        return True
+    words = [w for w in snippet.split() if w]
+    return len(snippet) < 40 or len(words) < 6
+
+
 def main() -> None:
     args = parse_args()
     files = sorted(TRANS_DIR.glob("*.json"))
@@ -88,17 +96,20 @@ def main() -> None:
 
         results: list[dict[str, Any]] = []
         non_english = 0
-        french = 0
+        skipped_short = 0
 
         for idx, row in enumerate(paragraphs, start=1):
             pid = row.get("id")
             english_text = row.get("english", "")
-            language, confidence = judge_language(identifier, english_text)
-            is_english = language == "english"
-            if not is_english:
-                non_english += 1
-            if language == "french":
-                french += 1
+            if is_too_short_for_judgment(english_text):
+                language, confidence = "unknown", 0.0
+                is_english = None
+                skipped_short += 1
+            else:
+                language, confidence = judge_language(identifier, english_text)
+                is_english = language == "english"
+                if is_english is False:
+                    non_english += 1
             results.append(
                 {
                     "id": pid,
@@ -119,9 +130,9 @@ def main() -> None:
             },
             "totals": {
                 "paragraphs": len(results),
-                "non_english": non_english,
-                "french": french,
-                "non_english_rate": round((non_english / len(results)) if results else 0.0, 4),
+                "failures": non_english,
+                "skipped_short": skipped_short,
+                "failure_rate": round((non_english / len(results)) if results else 0.0, 4),
             },
             "paragraphs": results,
         }
@@ -132,14 +143,14 @@ def main() -> None:
                 "model": model_name,
                 "file": str(fp.relative_to(PROJECT_ROOT)),
                 "paragraphs": len(results),
-                "non_english": non_english,
-                "french": french,
-                "non_english_rate": round((non_english / len(results)) if results else 0.0, 4),
+                "failures": non_english,
+                "skipped_short": skipped_short,
+                "failure_rate": round((non_english / len(results)) if results else 0.0, 4),
             }
         )
-        print(f"{model_name}: non_english={non_english}/{len(results)} french={french}")
+        print(f"{model_name}: failures={non_english}/{len(results)} skipped_short={skipped_short}")
 
-    summary_rows.sort(key=lambda r: (-r["non_english_rate"], -r["non_english"], r["model"]))
+    summary_rows.sort(key=lambda r: (-r["failure_rate"], -r["failures"], r["model"]))
     summary_doc = {
         "judge": {"provider": "local", "model": args.judge_model},
         "models": summary_rows,
